@@ -40,12 +40,8 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.b {
+  border: 2px solid red;
 }
 
 .wave-layer {
@@ -90,217 +86,217 @@ body {
   }
 }
 
-// @include variants('responsive' 'hover') using ($props...) {
-//   :root.dark {
-//     .dark\:bg {
-//       @include options($colors, $props...) using ($value) {
-//         background: $value;
-//       }
-//     }
-//     .dark\:text {
-//       @include options($colors, $props...) using ($value) {
-//         color: $value;
-//       }
-//     }
-//   }
+@include variants('responsive' 'hover') using ($props...) {
+  :root.dark {
+    .dark\:bg {
+      @include options($colors, $props...) using ($value) {
+        background: $value;
+      }
+    }
+    .dark\:text {
+      @include options($colors, $props...) using ($value) {
+        color: $value;
+      }
+    }
+  }
 
-//   .bg {
-//     @include options($colors, $props...) using ($value) {
-//       background: $value;
-//     }
-//   }
+  .bg {
+    @include options($colors, $props...) using ($value) {
+      background: $value;
+    }
+  }
 
-//   .text {
-//     @include options($colors, $props...) using ($value) {
-//       color: $value;
-//     }
-//   }
+  .text {
+    @include options($colors, $props...) using ($value) {
+      color: $value;
+    }
+  }
 
-//   .justify {
-//     @include options($justify, $props...) using ($value) {
-//       justify-content: $value;
-//     }
-//   }
+  .justify {
+    @include options($justify, $props...) using ($value) {
+      justify-content: $value;
+    }
+  }
 
-//   .items {
-//     @include options($items, $props...) using ($value) {
-//       align-items: $value;
-//     }
-//   }
+  .items {
+    @include options($items, $props...) using ($value) {
+      align-items: $value;
+    }
+  }
 
-//   .hidden {
-//     display: none;
-//   }
+  .hidden {
+    display: none;
+  }
 
-//   .initial {
-//     display: initial;
-//   }
+  .initial {
+    display: initial;
+  }
 
-//   .inherit {
-//     display: inherit;
-//   }
+  .inherit {
+    display: inherit;
+  }
 
-//   .flex {
-//     display: flex;
-//     flex-direction: column;
-//   }
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
 
-//   .flex-row {
-//     display: flex;
-//     flex-direction: row;
-//   }
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
 
-//   .flex-wrap {
-//     flex-wrap: wrap;
-//   }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
 
-//   .flex-wrap-rev {
-//     flex-wrap: wrap-reverse;
-//   }
+  .flex-wrap-rev {
+    flex-wrap: wrap-reverse;
+  }
 
-//   .flex {
-//     @include options($flex, $props...) using ($value) {
-//       flex: $value;
-//     }
-//   }
+  .flex {
+    @include options($flex, $props...) using ($value) {
+      flex: $value;
+    }
+  }
 
-//   .flex-grow {
-//     flex-grow: 1;
-//   }
+  .flex-grow {
+    flex-grow: 1;
+  }
 
-//   .p {
-//     @include options($spacing, $props...) using ($value) {
-//       padding: $value;
-//     }
-//   }
+  .p {
+    @include options($spacing, $props...) using ($value) {
+      padding: $value;
+    }
+  }
 
-//   .px {
-//     @include options($spacing, $props...) using ($value) {
-//       padding-right: $value;
-//       padding-left: $value;
-//     }
-//   }
+  .px {
+    @include options($spacing, $props...) using ($value) {
+      padding-right: $value;
+      padding-left: $value;
+    }
+  }
 
-//   .py {
-//     @include options($spacing, $props...) using ($value) {
-//       padding-bottom: $value;
-//       padding-top: $value;
-//     }
-//   }
+  .py {
+    @include options($spacing, $props...) using ($value) {
+      padding-bottom: $value;
+      padding-top: $value;
+    }
+  }
 
-//   .pt {
-//     @include options($spacing, $props...) using ($value) {
-//       padding-top: $value;
-//     }
-//   }
+  .pt {
+    @include options($spacing, $props...) using ($value) {
+      padding-top: $value;
+    }
+  }
 
-//   .pr {
-//     @include options($spacing, $props...) using ($value) {
-//       padding-right: $value;
-//     }
-//   }
+  .pr {
+    @include options($spacing, $props...) using ($value) {
+      padding-right: $value;
+    }
+  }
 
-//   .pb {
-//     @include options($spacing, $props...) using ($value) {
-//       padding-bottom: $value;
-//     }
-//   }
+  .pb {
+    @include options($spacing, $props...) using ($value) {
+      padding-bottom: $value;
+    }
+  }
 
-//   .pl {
-//     @include options($spacing, $props...) using ($value) {
-//       padding-left: $value;
-//     }
-//   }
+  .pl {
+    @include options($spacing, $props...) using ($value) {
+      padding-left: $value;
+    }
+  }
 
-//   .m {
-//     @include options($spacing, $props...) using ($value) {
-//       margin: $value;
-//     }
-//   }
+  .m {
+    @include options($spacing, $props...) using ($value) {
+      margin: $value;
+    }
+  }
 
-//   .mx {
-//     @include options($spacing, $props...) using ($value) {
-//       margin-right: $value;
-//       margin-left: $value;
-//     }
-//   }
+  .mx {
+    @include options($spacing, $props...) using ($value) {
+      margin-right: $value;
+      margin-left: $value;
+    }
+  }
 
-//   .my {
-//     @include options($spacing, $props...) using ($value) {
-//       margin-bottom: $value;
-//       margin-top: $value;
-//     }
-//   }
+  .my {
+    @include options($spacing, $props...) using ($value) {
+      margin-bottom: $value;
+      margin-top: $value;
+    }
+  }
 
-//   .mt {
-//     @include options($spacing, $props...) using ($value) {
-//       margin-top: $value;
-//     }
-//   }
+  .mt {
+    @include options($spacing, $props...) using ($value) {
+      margin-top: $value;
+    }
+  }
 
-//   .mr {
-//     @include options($spacing, $props...) using ($value) {
-//       margin-right: $value;
-//     }
-//   }
+  .mr {
+    @include options($spacing, $props...) using ($value) {
+      margin-right: $value;
+    }
+  }
 
-//   .mb {
-//     @include options($spacing, $props...) using ($value) {
-//       margin-bottom: $value;
-//     }
-//   }
+  .mb {
+    @include options($spacing, $props...) using ($value) {
+      margin-bottom: $value;
+    }
+  }
 
-//   .ml {
-//     @include options($spacing, $props...) using ($value) {
-//       margin-left: $value;
-//     }
-//   }
+  .ml {
+    @include options($spacing, $props...) using ($value) {
+      margin-left: $value;
+    }
+  }
 
-//   .text {
-//     @include options($fontsize, $props...) using ($value) {
-//       font-size: $value;
-//     }
-//     @include options($lineheight, $props...) using ($value) {
-//       line-height: $value;
-//     }
-//     @include options($align, $props...) using ($value) {
-//       text-align: $value;
-//     }
-//   }
+  .text {
+    @include options($fontsize, $props...) using ($value) {
+      font-size: $value;
+    }
+    @include options($lineheight, $props...) using ($value) {
+      line-height: $value;
+    }
+    @include options($align, $props...) using ($value) {
+      text-align: $value;
+    }
+  }
 
-//   .h {
-//     @include options($height, $props...) using ($value) {
-//       height: $value;
-//     }
-//   }
+  .h {
+    @include options($height, $props...) using ($value) {
+      height: $value;
+    }
+  }
 
-//   .w {
-//     @include options($width, $props...) using ($value) {
-//       width: $value;
-//     }
-//   }
+  .w {
+    @include options($width, $props...) using ($value) {
+      width: $value;
+    }
+  }
 
-//   .min-h {
-//     @include options($height, $props...) using ($value) {
-//       min-height: $value;
-//     }
-//   }
+  .min-h {
+    @include options($height, $props...) using ($value) {
+      min-height: $value;
+    }
+  }
 
-//   .min-w {
-//     @include options($width, $props...) using ($value) {
-//       min-width: $value;
-//     }
-//   }
+  .min-w {
+    @include options($width, $props...) using ($value) {
+      min-width: $value;
+    }
+  }
 
-//   .max-h {
-//     @include options($height, $props...) using ($value) {
-//       max-height: $value;
-//     }
-//   }
+  .max-h {
+    @include options($height, $props...) using ($value) {
+      max-height: $value;
+    }
+  }
 
-//   .max-w {
-//     @include options($width, $props...) using ($value) {
-//       max-width: $value;
-//     }
-//   }
-// }
+  .max-w {
+    @include options($width, $props...) using ($value) {
+      max-width: $value;
+    }
+  }
+}
