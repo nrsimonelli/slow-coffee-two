@@ -37,10 +37,10 @@ body {
 }
 
 .wave-layer {
-  background-image: url("../images/wave-layer.svg");
-  background-position: bottom;
+  background-image: url("../images/blob-haikei.svg");
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: auto 100%;
 }
 
 @media screen and (min-width: 640px) {
