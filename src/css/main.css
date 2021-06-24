@@ -48,7 +48,7 @@ body {
 }
 
 .fill-accent {
-  fill: #2563eb;
+  fill: #141414;
 }
 
 :root.dark .fill-primary {
@@ -58,7 +58,7 @@ body {
   fill: #141414;
 }
 :root.dark .fill-accent {
-  fill: #2563eb;
+  fill: #d4d4d8;
 }
 
 @media screen and (min-width: 640px) {
