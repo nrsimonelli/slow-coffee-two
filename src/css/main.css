@@ -39,6 +39,28 @@ body {
   background-size: auto 100%;
 }
 
+.fill-primary {
+  fill: #d4d4d8;
+}
+
+.fill-secondary {
+  fill: #d4d4d8;
+}
+
+.fill-accent {
+  fill: #2563eb;
+}
+
+:root.dark .fill-primary {
+  fill: #141414;
+}
+:root.dark .fill-secondary {
+  fill: #141414;
+}
+:root.dark .fill-accent {
+  fill: #2563eb;
+}
+
 @media screen and (min-width: 640px) {
   .container {
     min-width: 640px;
