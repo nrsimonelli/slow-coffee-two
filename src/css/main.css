@@ -32,6 +32,15 @@ body {
   cursor: pointer;
 }
 
+.modal-container {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .wave-layer {
   background-image: url("../images/blob-haikei.svg");
   background-position: center;
@@ -63,6 +72,7 @@ body {
 
 .button {
   cursor: pointer;
+  border-color: currentColor;
   border-radius: 9999px;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
@@ -89,6 +99,11 @@ body {
   opacity: 1;
 }
 
+.cancel-button {
+  border: solid 2px;
+  border-color: #3b82f6;
+}
+
 .nav-root {
   border-bottom: 1px solid #a1a1aa;
 }
@@ -99,38 +114,38 @@ body {
 
 @media screen and (min-width: 640px) {
   .container {
-    min-width: 640px;
+    max-width: 640px;
   }
 
   .container-sm {
-    min-width: 640px;
+    max-width: 640px;
   }
 }
 @media screen and (min-width: 768px) {
   .container {
-    min-width: 768px;
+    max-width: 768px;
   }
 
   .container-md {
-    min-width: 768px;
+    max-width: 768px;
   }
 }
 @media screen and (min-width: 1024px) {
   .container {
-    min-width: 1024px;
+    max-width: 1024px;
   }
 
   .container-lg {
-    min-width: 1024px;
+    max-width: 1024px;
   }
 }
 @media screen and (min-width: 1280px) {
   .container {
-    min-width: 1280px;
+    max-width: 1280px;
   }
 
   .container-xl {
-    min-width: 1280px;
+    max-width: 1280px;
   }
 }
 .transition-all {

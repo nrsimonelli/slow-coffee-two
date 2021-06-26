@@ -17,10 +17,10 @@
 @each $name, $value in $breakpoints {
   @media screen and (min-width: $value) {
     .container {
-      min-width: $value;
+      max-width: $value;
     }
     .container-#{$name} {
-      min-width: $value;
+      max-width: $value;
     }
   }
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const ex = (
   <svg
-    className='landing-svg mt-20'
+    className='landing-svg mt-4'
     version='1.1'
     viewBox='0 0 512 512'
     width='150'
@@ -56,36 +56,53 @@ const ex = (
 );
 
 const Landing = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalStatus, setModalStatus] = useState(false);
 
   const showModal = () => {
     console.log('showing modal now');
-    setIsModalVisible(true);
+    setModalStatus(true);
   };
 
   const handleOk = () => {
-    setIsModalVisible(false);
+    setModalStatus(false);
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false);
+    setModalStatus(false);
   };
 
   return (
     <div className='landing-root wave-layer w-full flex flex-grow justify-center items-center'>
       {ex}
       <div
-        className='mt-8 w-32 bg-black-800 text-accent-400 dark:bg-primary-300 dark:text-accent-500 p-4 button text-md text-center'
+        className='button mt-8 w-32 bg-black-800 text-accent-400 dark:bg-primary-300 dark:text-accent-500 p-4 text-md text-center'
         onClick={showModal}
       >
         Brew
       </div>
 
-      {isModalVisible && (
-        <div className='modal-container'>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+      {modalStatus && (
+        <div className='modal-container w-full h-full'>
+          <div className='modal-content container-sm container-md mx-auto mt-32 p-4 bg-primary-300 text-black-800 dark:bg-black-700 dark:text-primary-300 flex'>
+            <div>Header</div>
+            <div>input</div>
+            <div>input</div>
+            <div>input</div>
+            <div className='w-full flex-row justify-center items-center'>
+              <div
+                className='button mt-8 mb-4 mx-4 w-32 bg-accent-500 text-primary-300 dark:bg-accent-400 dark:text-black-800 p-4 text-xs text-center'
+                onClick={handleOk}
+              >
+                OK
+              </div>
+              <div
+                className='cancel-button button mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 p-4 text-xs text-center'
+                onClick={handleCancel}
+              >
+                Cancel
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>

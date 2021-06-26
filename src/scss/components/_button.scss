@@ -1,5 +1,8 @@
+@use '../abstract' as *;
+
 .button {
   cursor: pointer;
+  border-color: currentColor;
   border-radius: 9999px;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
@@ -24,4 +27,9 @@
 
 .button:hover::after {
   opacity: 1;
+}
+
+.cancel-button {
+  border: solid 2px;
+  border-color: map-get($colors, 'accent', 500);
 }
