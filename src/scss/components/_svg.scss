@@ -1,0 +1,30 @@
+@use '../abstract' as *;
+
+.wave-layer {
+  background-image: url('../images/blob-haikei.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+.fill-primary {
+  fill: map-get($colors, 'primary', 300);
+}
+.fill-secondary {
+  fill: map-get($colors, 'primary', 300);
+}
+.fill-accent {
+  fill: map-get($colors, 'black', 800);
+}
+
+:root.dark {
+  .fill-primary {
+    fill: map-get($colors, 'black', 800);
+  }
+  .fill-secondary {
+    fill: map-get($colors, 'black', 800);
+  }
+  .fill-accent {
+    fill: map-get($colors, 'primary', 300);
+  }
+}

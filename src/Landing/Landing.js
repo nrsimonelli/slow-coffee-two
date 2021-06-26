@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ex = (
-  <svg version='1.1' viewBox='0 0 512 512' width='150' height='150'>
+  <svg
+    className='landing-svg mt-20'
+    version='1.1'
+    viewBox='0 0 512 512'
+    width='150'
+    height='150'
+  >
     <path
       className='fill-primary'
       fill='#F9EBDB'
@@ -50,10 +56,38 @@ const ex = (
 );
 
 const Landing = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    console.log('showing modal now');
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div className='landing-root wave-layer w-full flex flex-grow justify-center items-center'>
       {ex}
-      <div>button</div>
+      <div
+        className='mt-8 w-32 bg-black-800 text-accent-400 dark:bg-primary-300 dark:text-accent-500 p-4 button text-md text-center'
+        onClick={showModal}
+      >
+        Brew
+      </div>
+
+      {isModalVisible && (
+        <div className='modal-container'>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </div>
+      )}
     </div>
   ); // end return
 };

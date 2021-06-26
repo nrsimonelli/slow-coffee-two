@@ -1,0 +1,5 @@
+@use '../abstract' as *;
+
+.nav-root {
+  border-bottom: 1px solid map-get($colors, 'primary', 400);
+}

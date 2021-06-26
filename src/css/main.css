@@ -28,8 +28,8 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.b {
-  border: 2px solid red;
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .wave-layer {
@@ -59,6 +59,42 @@ body {
 }
 :root.dark .fill-accent {
   fill: #d4d4d8;
+}
+
+.button {
+  cursor: pointer;
+  border-radius: 9999px;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+}
+
+.button:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.button:active {
+  transform: scale(1, 1);
+}
+
+.button::after {
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.button:hover::after {
+  opacity: 1;
+}
+
+.nav-root {
+  border-bottom: 1px solid #a1a1aa;
+}
+
+.b {
+  border: 2px solid red;
 }
 
 @media screen and (min-width: 640px) {
@@ -97,10 +133,6 @@ body {
     min-width: 1280px;
   }
 }
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

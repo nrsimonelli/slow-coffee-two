@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './Nav/Nav';
 import Landing from './Landing/Landing';
+import Setup from './Setup/Setup';
 
 const App = () => {
   return (

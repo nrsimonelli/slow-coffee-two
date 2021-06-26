@@ -8,69 +8,10 @@
 );
 
 @use './abstract' as *;
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-:root {
-  font-family: 'Poppins', sans-serif;
-}
-
-html {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  scroll-behavior: smooth;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.3;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  vertical-align: baseline;
-  font-family: 'Poppins', sans-serif;
-}
+@use './components' as *;
 
 .b {
   border: 2px solid red;
-}
-
-.wave-layer {
-  background-image: url('../images/blob-haikei.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-}
-
-.fill-primary {
-  fill: map-get($colors, 'primary', 300);
-}
-.fill-secondary {
-  fill: map-get($colors, 'primary', 300);
-}
-.fill-accent {
-  fill: map-get($colors, 'black', 800);
-}
-
-:root.dark {
-  .fill-primary {
-    fill: map-get($colors, 'black', 800);
-  }
-  .fill-secondary {
-    fill: map-get($colors, 'black', 800);
-  }
-  .fill-accent {
-    fill: map-get($colors, 'primary', 300);
-  }
 }
 
 @each $name, $value in $breakpoints {
@@ -82,10 +23,6 @@ body {
       min-width: $value;
     }
   }
-}
-
-.cursor-pointer {
-  cursor: pointer;
 }
 
 .transition {
