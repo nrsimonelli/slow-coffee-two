@@ -16,6 +16,9 @@
 .b-accent {
   border: 2px solid map-get($colors, 'accent', 400);
 }
+.capitalize {
+  text-transform: capitalize;
+}
 
 :root.dark {
   .dark\:b-accent {

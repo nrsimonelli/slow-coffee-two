@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ModalCard from './ModalCard';
 
 import { BsLightningFill } from 'react-icons/bs';
 import { BiCheck } from 'react-icons/bi';
@@ -70,6 +71,7 @@ const STATES = {
 const Landing = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalState, setModalState] = useState(STATES.VOLUME);
+  const [activeCardId, setActiveCardId] = useState('');
 
   const showModal = () => {
     console.log('showing modal now');
@@ -120,7 +122,7 @@ const Landing = () => {
   const modalComponent = isModalOpen ? (
     <div className='modal-container w-screen h-screen flex justify-center'>
       <div className='modal-content w-full container-sm container-md mx-auto bg-primary-300 text-black-800 dark:bg-black-700 dark:text-primary-300 flex'>
-        <h1 className='text-center pt-6'>{modalState}</h1>
+        <h1 className='text-center pt-6 capitalize'>{modalState}</h1>
         <div className='w-full py-6 flex-row justify-center items-center'>
           <div className='step mx-4 flex justify-center items-center text-center'>
             <div className='flex h-10 w-10 mb-2 bg-accent-500 text-white-300 dark:bg-accent-400 dark:text-black-800 rounded-full justify-center items-center'>
@@ -152,12 +154,24 @@ const Landing = () => {
           </div>
         </div>
 
-        <div className='p-4 form-container flex justify-center'>
-          <div className=''>input</div>
-          <div>input</div>
-          <div>input</div>
+        <div className='p-6 form-container flex-row justify-center'>
+          <ModalCard
+            activeId={activeCardId}
+            setActiveId={setActiveCardId}
+            id='1'
+          />
+          <ModalCard
+            activeId={activeCardId}
+            setActiveId={setActiveCardId}
+            id='2'
+          />
+          <ModalCard
+            activeId={activeCardId}
+            setActiveId={setActiveCardId}
+            id='3'
+          />
         </div>
-        <div className='w-full flex-row justify-center items-center'>
+        <div className='w-full flex-row justify-center items-center py-6'>
           {modalState === STATES.VOLUME ? (
             <div
               className='cancel-button button border-accent-500 dark:border-accent-400 rounded-full mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 p-4 text-xs text-center'
