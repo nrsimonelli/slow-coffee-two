@@ -38,6 +38,13 @@ $height: map.merge(
   (
     'full': 100%,
     'screen': 100vh,
+    'one-fifth': 20%,
+    'two-fifth': 40%,
+    'three-fifth': 60%,
+    'four-fifth': 80%,
+    'one-fourth': 25%,
+    'two-fourth': 50%,
+    'three-fourth': 75%,
   ),
   $spacing
 );
@@ -46,6 +53,13 @@ $width: map.merge(
   (
     'full': 100%,
     'screen': 100vw,
+    'one-fifth': 20%,
+    'two-fifth': 40%,
+    'three-fifth': 60%,
+    'four-fifth': 80%,
+    'one-fourth': 25%,
+    'two-fourth': 50%,
+    'three-fourth': 75%,
   ),
   $spacing
 );

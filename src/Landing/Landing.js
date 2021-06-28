@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+import { BsLightningFill } from 'react-icons/bs';
+import { BiCheck } from 'react-icons/bi';
+import { RiCupFill } from 'react-icons/ri';
+
 const ex = (
   <svg
     className='landing-svg mt-4'
@@ -55,56 +59,141 @@ const ex = (
   </svg>
 );
 
+// modal states
+const STATES = {
+  VOLUME: 'volume',
+  STRENGTH: 'strength',
+  CONFIRM: 'confirm',
+  GO: 'go',
+};
+
 const Landing = () => {
-  const [modalStatus, setModalStatus] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalState, setModalState] = useState(STATES.VOLUME);
 
   const showModal = () => {
     console.log('showing modal now');
-    setModalStatus(true);
+    setIsModalOpen(true);
   };
 
   const handleOk = () => {
-    setModalStatus(false);
+    if (modalState === STATES.VOLUME) {
+      setModalState(STATES.STRENGTH);
+    }
+    if (modalState === STATES.STRENGTH) {
+      setModalState(STATES.CONFIRM);
+    }
+    if (modalState === STATES.CONFIRM) {
+      setModalState(STATES.GO);
+    }
+  };
+
+  const handleBack = () => {
+    if (modalState === STATES.STRENGTH) {
+      setModalState(STATES.VOLUME);
+    }
+    if (modalState === STATES.CONFIRM) {
+      setModalState(STATES.STRENGTH);
+    }
+    if (modalState === STATES.GO) {
+      setModalState(STATES.CONFIRM);
+    }
   };
 
   const handleCancel = () => {
-    setModalStatus(false);
+    setIsModalOpen(false);
   };
+
+  const fullBar = (
+    <div className='bg-accent-500 dark:bg-accent-400 w-full h-1 rounded-full'></div>
+  );
+
+  const halfBar = (
+    <div className='bg-accent-500 dark:bg-accent-400 w-two-fifth h-1 rounded-full'></div>
+  );
+
+  const fifthBar = (
+    <div className='bg-accent-500 dark:bg-accent-400 w-one-fifth h-1 rounded-full'></div>
+  );
+
+  // show when modal = true
+  const modalComponent = isModalOpen ? (
+    <div className='modal-container w-screen h-screen flex justify-center'>
+      <div className='modal-content w-full container-sm container-md mx-auto bg-primary-300 text-black-800 dark:bg-black-700 dark:text-primary-300 flex'>
+        <h1 className='text-center pt-6'>{modalState}</h1>
+        <div className='w-full py-6 flex-row justify-center items-center'>
+          <div className='step mx-4 flex justify-center items-center text-center'>
+            <div className='flex h-10 w-10 mb-2 bg-accent-500 text-white-300 dark:bg-accent-400 dark:text-black-800 rounded-full justify-center items-center'>
+              <RiCupFill className='w-6 h-6' />
+            </div>
+            <div className='text-xs'>how much?</div>
+          </div>
+          <div className='border-accent-500 dark:border-accent-400 w-one-fifth rounded-full h-1 transition-all'>
+            {modalState !== STATES.VOLUME ? fullBar : halfBar}
+          </div>
+          <div className='step mx-4 flex justify-center items-center text-center'>
+            <div className='flex h-10 w-10 mb-2 bg-accent-500 text-white-300 dark:bg-accent-400 dark:text-black-800 rounded-full justify-center items-center'>
+              <BsLightningFill className='w-6 h-6' />
+            </div>
+            <div className='text-xs'>how strong?</div>
+          </div>
+          <div className='border-accent-500 dark:border-accent-400 w-one-fifth rounded-full h-1'>
+            {modalState === STATES.VOLUME && null}
+            {modalState === STATES.STRENGTH && fifthBar}
+            {(modalState == STATES.CONFIRM ||
+              modalState == STATES.GO) &&
+              fullBar}
+          </div>
+          <div className='step mx-4 flex justify-center items-center text-center'>
+            <div className='flex h-10 w-10 mb-2 bg-accent-500 text-white-300 dark:bg-accent-400 dark:text-black-800 rounded-full justify-center items-center'>
+              <BiCheck className='w-8 h-8' />
+            </div>
+            <div className='text-xs'>final prep</div>
+          </div>
+        </div>
+
+        <div className='p-4 form-container flex justify-center'>
+          <div className=''>input</div>
+          <div>input</div>
+          <div>input</div>
+        </div>
+        <div className='w-full flex-row justify-center items-center'>
+          {modalState === STATES.VOLUME ? (
+            <div
+              className='cancel-button button border-accent-500 dark:border-accent-400 rounded-full mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 p-4 text-xs text-center'
+              onClick={handleCancel}
+            >
+              Cancel
+            </div>
+          ) : (
+            <div
+              className='cancel-button button border-accent-500 rounded-full mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 dark:border-accent-400 p-4 text-xs text-center'
+              onClick={handleBack}
+            >
+              Back
+            </div>
+          )}
+          <div
+            className='button rounded-full mt-8 mb-4 mx-4 w-32 bg-accent-500 border-accent-500 text-primary-300 dark:bg-accent-400 dark:border-accent-400 dark:text-black-800 p-4 text-xs text-center'
+            onClick={handleOk}
+          >
+            Next
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : null;
 
   return (
     <div className='landing-root wave-layer w-full flex flex-grow justify-center items-center'>
       {ex}
       <div
-        className='button mt-8 w-32 bg-black-800 text-accent-400 dark:bg-primary-300 dark:text-accent-500 p-4 text-md text-center'
+        className='button rounded-full mt-8 w-32 bg-black-800 text-accent-400 dark:bg-primary-300 dark:text-accent-500 p-4 text-md text-center'
         onClick={showModal}
       >
         Brew
       </div>
-
-      {modalStatus && (
-        <div className='modal-container w-full h-full'>
-          <div className='modal-content container-sm container-md mx-auto mt-32 p-4 bg-primary-300 text-black-800 dark:bg-black-700 dark:text-primary-300 flex'>
-            <div>Header</div>
-            <div>input</div>
-            <div>input</div>
-            <div>input</div>
-            <div className='w-full flex-row justify-center items-center'>
-              <div
-                className='button mt-8 mb-4 mx-4 w-32 bg-accent-500 text-primary-300 dark:bg-accent-400 dark:text-black-800 p-4 text-xs text-center'
-                onClick={handleOk}
-              >
-                OK
-              </div>
-              <div
-                className='cancel-button button mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 p-4 text-xs text-center'
-                onClick={handleCancel}
-              >
-                Cancel
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {modalComponent}
     </div>
   ); // end return
 };

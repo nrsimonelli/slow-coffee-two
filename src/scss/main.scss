@@ -8,10 +8,19 @@
 );
 
 @use './abstract' as *;
-@use './components' as *;
+@use './component' as *;
 
 .b {
   border: 2px solid red;
+}
+.b-accent {
+  border: 2px solid map-get($colors, 'accent', 400);
+}
+
+:root.dark {
+  .dark\:b-accent {
+    border: 2px solid map-get($colors, 'accent', 600);
+  }
 }
 
 @each $name, $value in $breakpoints {
@@ -39,10 +48,20 @@
   }
 }
 
+.delay {
+  @include options($duration) using ($value) {
+    transition-delay: $value;
+  }
+}
+
 .ease {
   @include options($ease) using ($value) {
     transition-timing-function: $value;
   }
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 @include variants('responsive' 'hover') using ($props...) {
@@ -56,6 +75,17 @@
       @include options($colors, $props...) using ($value) {
         color: $value;
       }
+    }
+    .dark\:border {
+      @include options($colors, $props...) using ($value) {
+        border: solid 2px $value;
+      }
+    }
+  }
+
+  .border {
+    @include options($colors, $props...) using ($value) {
+      border: solid 2px $value;
     }
   }
 
