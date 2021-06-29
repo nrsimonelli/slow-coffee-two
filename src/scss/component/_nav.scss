@@ -1,5 +1,31 @@
 @use '../abstract' as *;
 
-.nav-root {
-  border-bottom: 1px solid map-get($colors, 'primary', 400);
+.nav-title {
+  background-image: linear-gradient(
+    to bottom,
+    map-get($colors, 'white', 800) 0%,
+    map-get($colors, 'black', 900) 100%
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+:root.dark {
+  .nav-title {
+    background-image: linear-gradient(
+      to top,
+      map-get($colors, 'white', 800) 0%,
+      map-get($colors, 'black', 300) 100%
+    );
+
+    background-size: 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
 }

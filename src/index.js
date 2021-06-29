@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/main.css';
-import App from './App';
+import App from './components/App/App';
 
-import { ThemeProvider } from './Theme/ThemeContext';
-import ThemeBackground from './Theme/ThemeBackground';
+import { ThemeProvider } from './components/Theme/ThemeContext';
+import ThemeBackground from './components/Theme/ThemeBackground';
 
 ReactDOM.render(
   <ThemeProvider>

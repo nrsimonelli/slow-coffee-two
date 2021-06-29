@@ -19,10 +19,20 @@
 .capitalize {
   text-transform: capitalize;
 }
-
+body {
+  background-image: linear-gradient(
+    to bottom right,
+    map-get($colors, 'primary', 200) 0%,
+    map-get($colors, 'primary', 400) 100%
+  );
+}
 :root.dark {
-  .dark\:b-accent {
-    border: 2px solid map-get($colors, 'accent', 600);
+  body {
+    background-image: linear-gradient(
+      to bottom right,
+      map-get($colors, 'primary', 800) 0%,
+      map-get($colors, 'primary', 900) 100%
+    );
   }
 }
 

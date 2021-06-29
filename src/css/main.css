@@ -112,8 +112,24 @@ body {
   opacity: 1;
 }
 
-.nav-root {
-  border-bottom: 1px solid #a1a1aa;
+.nav-title {
+  background-image: linear-gradient(to bottom, #595959 0%, #000000 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+:root.dark .nav-title {
+  background-image: linear-gradient(to top, #595959 0%, #8c8c8c 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 
 .b {
@@ -128,8 +144,12 @@ body {
   text-transform: capitalize;
 }
 
-:root.dark .dark\:b-accent {
-  border: 2px solid #2563eb;
+body {
+  background-image: linear-gradient(to bottom right, #e4e4e7 0%, #a1a1aa 100%);
+}
+
+:root.dark body {
+  background-image: linear-gradient(to bottom right, #27272a 0%, #18181b 100%);
 }
 
 @media screen and (min-width: 640px) {
