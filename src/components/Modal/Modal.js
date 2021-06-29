@@ -14,6 +14,7 @@ const STATES = {
   GO: 'go',
 };
 
+// card states
 const CARD = {
   ONE: 1,
   TWO: 2,
@@ -65,7 +66,7 @@ const Modal = (props) => {
 
   return (
     <div className='modal-container w-screen h-screen flex justify-center'>
-      <div className='modal-content w-full container-sm container-md mx-auto bg-primary-300 text-black-800 dark:bg-black-700 dark:text-primary-300 flex'>
+      <div className='modal-content w-full container-sm container-md mx-auto bg-white-300 text-black-800 dark:bg-black-700 dark:text-primary-300 flex'>
         <h1 className='text-center pt-6 capitalize'>{modalState}</h1>
         <div className='w-full py-6 flex-row justify-center items-center'>
           <div className='step mx-4 flex justify-center items-center text-center'>
@@ -97,48 +98,194 @@ const Modal = (props) => {
             <div className='text-xs'>final prep</div>
           </div>
         </div>
+        <>
+          {/* VOLUME CARDS */}
+          {modalState === STATES.VOLUME && (
+            <>
+              <div className='p-6 form-container flex-row justify-center'>
+                {/* Choice One */}
+                <div
+                  className={
+                    activeCardState.volume === CARD.ONE
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                  }
+                  onClick={() =>
+                    setActiveCardState({
+                      ...activeCardState,
+                      volume: CARD.ONE,
+                    })
+                  }
+                >
+                  <div>Volume 1</div>
+                  <div>image</div>
+                  <div>text</div>
+                </div>
 
-        <div className='p-6 form-container flex-row justify-center'>
-          <div
-            className={
-              activeCardState.volume === CARD.ONE
-                ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
-                : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
-            }
-            onClick={() =>
-              setActiveCardState({
-                ...activeCardState,
-                volume: CARD.ONE,
-              })
-            }
-          >
-            <div>title</div>
-            <div>image</div>
-            <div>text</div>
-          </div>
-        </div>
-        <div className='w-full flex-row justify-center items-center py-6'>
-          {modalState === STATES.VOLUME ? (
-            <div
-              className='cancel-button button border-accent-500 dark:border-accent-400 rounded-full mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 p-4 text-xs text-center'
-              onClick={props.cancel}
-            >
-              Cancel
-            </div>
-          ) : (
-            <div
-              className='cancel-button button border-accent-500 rounded-full mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 dark:border-accent-400 p-4 text-xs text-center'
-              onClick={handleBack}
-            >
-              Back
-            </div>
+                {/* Choice Two */}
+                <div
+                  className={
+                    activeCardState.volume === CARD.TWO
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                  }
+                  onClick={() =>
+                    setActiveCardState({
+                      ...activeCardState,
+                      volume: CARD.TWO,
+                    })
+                  }
+                >
+                  <div>Volume 2</div>
+                  <div>image</div>
+                  <div>text</div>
+                </div>
+                {/* Choice Three */}
+                <div
+                  className={
+                    activeCardState.volume === CARD.THREE
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                  }
+                  onClick={() =>
+                    setActiveCardState({
+                      ...activeCardState,
+                      volume: CARD.THREE,
+                    })
+                  }
+                >
+                  <div>Volume 3</div>
+                  <div>image</div>
+                  <div>text</div>
+                </div>
+              </div>
+              <div className='w-full flex-row justify-center items-center py-6'>
+                <div
+                  className='cancel-button button border-accent-500 dark:border-accent-400 hover:bg-white-400 hover:dark:bg-black-600 rounded-full mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 p-4 text-xs text-center'
+                  onClick={props.cancel}
+                >
+                  Cancel
+                </div>
+                <OkButton
+                  isActive={activeCardState.volume}
+                  handleOk={handleOk}
+                />
+              </div>
+            </>
           )}
+          {modalState === STATES.STRENGTH && (
+            <>
+              <div className='p-6 form-container flex-row justify-center'>
+                {/* Choice One */}
+                <div
+                  className={
+                    activeCardState.strength === CARD.ONE
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                  }
+                  onClick={() =>
+                    setActiveCardState({
+                      ...activeCardState,
+                      strength: CARD.ONE,
+                    })
+                  }
+                >
+                  <div>Strength 1</div>
+                  <div>image</div>
+                  <div>text</div>
+                </div>
 
-          <OkButton
-            isActive={activeCardState.volume}
-            handleOk={handleOk}
-          />
-        </div>
+                {/* Choice Two */}
+                <div
+                  className={
+                    activeCardState.strength === CARD.TWO
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                  }
+                  onClick={() =>
+                    setActiveCardState({
+                      ...activeCardState,
+                      strength: CARD.TWO,
+                    })
+                  }
+                >
+                  <div>Strength 2</div>
+                  <div>image</div>
+                  <div>text</div>
+                </div>
+                {/* Choice Three */}
+                <div
+                  className={
+                    activeCardState.strength === CARD.THREE
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                  }
+                  onClick={() =>
+                    setActiveCardState({
+                      ...activeCardState,
+                      strength: CARD.THREE,
+                    })
+                  }
+                >
+                  <div>Strength 3</div>
+                  <div>image</div>
+                  <div>text</div>
+                </div>
+              </div>
+              <div className='w-full flex-row justify-center items-center py-6'>
+                <div
+                  className='cancel-button button border-accent-500 rounded-full mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 dark:border-accent-400 hover:bg-white-400 hover:dark:bg-black-600 p-4 text-xs text-center'
+                  onClick={handleBack}
+                >
+                  Back
+                </div>
+                <OkButton
+                  isActive={activeCardState.strength}
+                  handleOk={handleOk}
+                />
+              </div>
+            </>
+          )}
+          {modalState === STATES.CONFIRM && (
+            <>
+              <div className='p-6 form-container flex-row justify-center'>
+                {/* Choice One */}
+                <div className='card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'>
+                  <div>is this correct?</div>
+                  <div>vol + strength</div>
+                  <div>ok</div>
+                </div>
+              </div>
+              <div className='w-full flex-row justify-center items-center py-6'>
+                <div
+                  className='cancel-button button border-accent-500 rounded-full mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 dark:border-accent-400 hover:bg-white-400 hover:dark:bg-black-600 p-4 text-xs text-center'
+                  onClick={handleBack}
+                >
+                  Back
+                </div>
+                <OkButton
+                  isActive={activeCardState.confirm}
+                  handleOk={handleOk}
+                />
+              </div>
+            </>
+          )}
+          {modalState === STATES.GO && (
+            <>
+              <div className='p-6 form-container flex-row justify-center'>
+                {/* Choice One */}
+                <div className='card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'>
+                  <div>
+                    Once you have all of this ready, hit go to start
+                    the clock
+                  </div>
+                  <div>some grams</div>
+                  <div>some water</div>
+                </div>
+              </div>
+            </>
+          )}
+        </>
       </div>
     </div>
   );

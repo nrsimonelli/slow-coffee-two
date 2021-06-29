@@ -24,5 +24,11 @@
 }
 
 .card-container:hover {
-  transform: scale(1.1);
+  background-color: map-get($colors, 'white', 400);
+}
+
+:root.dark {
+  .card-container:hover {
+    background-color: map-get($colors, 'black', 500);
+  }
 }
