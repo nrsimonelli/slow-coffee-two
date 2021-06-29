@@ -55,8 +55,12 @@ body {
   border: 2px solid #3b82f6;
 }
 
+.card-container:hover {
+  transform: scale(1.1);
+}
+
 .wave-layer {
-  background-image: url("../images/blob-haikei.svg");
+  background-image: url("../img/blob-haikei.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -144,12 +148,12 @@ body {
   text-transform: capitalize;
 }
 
-body {
-  background-image: linear-gradient(to bottom right, #e4e4e7 0%, #a1a1aa 100%);
+.root {
+  background-image: linear-gradient(to bottom right, #e4e4e7 0%, #60a5fa 100%);
 }
 
-:root.dark body {
-  background-image: linear-gradient(to bottom right, #27272a 0%, #18181b 100%);
+:root.dark .root {
+  background: #141414;
 }
 
 @media screen and (min-width: 640px) {

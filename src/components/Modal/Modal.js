@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ModalCard from './ModalCard';
+import OkButton from './OkButton';
 
 import { BsLightningFill } from 'react-icons/bs';
 import { BiCheck } from 'react-icons/bi';
@@ -13,12 +14,17 @@ const STATES = {
   GO: 'go',
 };
 
+const CARD = {
+  ONE: 1,
+  TWO: 2,
+  THREE: 3,
+};
+
 const Modal = (props) => {
   const [modalState, setModalState] = useState(STATES.VOLUME);
-  const [activeCardId, setActiveCardId] = useState('');
-  const [activeSettings, setActiveSettings] = useState({
-    volume: '',
-    strength: '',
+  const [activeCardState, setActiveCardState] = useState({
+    volume: false,
+    strength: false,
   });
 
   const handleOk = () => {
@@ -93,21 +99,23 @@ const Modal = (props) => {
         </div>
 
         <div className='p-6 form-container flex-row justify-center'>
-          <ModalCard
-            activeId={activeCardId}
-            setActiveId={setActiveCardId}
-            id='1'
-          />
-          <ModalCard
-            activeId={activeCardId}
-            setActiveId={setActiveCardId}
-            id='2'
-          />
-          <ModalCard
-            activeId={activeCardId}
-            setActiveId={setActiveCardId}
-            id='3'
-          />
+          <div
+            className={
+              activeCardState.volume === CARD.ONE
+                ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+            }
+            onClick={() =>
+              setActiveCardState({
+                ...activeCardState,
+                volume: CARD.ONE,
+              })
+            }
+          >
+            <div>title</div>
+            <div>image</div>
+            <div>text</div>
+          </div>
         </div>
         <div className='w-full flex-row justify-center items-center py-6'>
           {modalState === STATES.VOLUME ? (
@@ -125,12 +133,11 @@ const Modal = (props) => {
               Back
             </div>
           )}
-          <div
-            className='button rounded-full mt-8 mb-4 mx-4 w-32 bg-accent-500 border-accent-500 text-primary-300 dark:bg-accent-400 dark:border-accent-400 dark:text-black-800 p-4 text-xs text-center'
-            onClick={handleOk}
-          >
-            Next
-          </div>
+
+          <OkButton
+            isActive={activeCardState.volume}
+            handleOk={handleOk}
+          />
         </div>
       </div>
     </div>

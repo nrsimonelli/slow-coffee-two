@@ -12,7 +12,7 @@ const ThemeToggle = () => {
           onClick={() =>
             setTheme(theme === 'dark' ? 'light' : 'dark')
           }
-          className='dark:text-accent-500 text-2xl cursor-pointer'
+          className='dark:text-accent-400 text-2xl cursor-pointer'
         />
       ) : (
         <HiMoon

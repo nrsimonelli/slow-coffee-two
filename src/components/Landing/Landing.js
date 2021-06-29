@@ -73,7 +73,7 @@ const Landing = () => {
     <div className='landing-root wave-layer w-full flex flex-grow justify-center items-center'>
       {ex}
       <div
-        className='button rounded-full mt-8 w-32 bg-black-800 text-accent-400 dark:bg-primary-300 dark:text-accent-500 p-4 text-md text-center'
+        className='button rounded-full mt-8 w-32 bg-black-800 text-accent-400 dark:bg-accent-100 dark:text-accent-500 p-4 text-md text-center'
         onClick={showModal}
       >
         Brew

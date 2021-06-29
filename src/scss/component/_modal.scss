@@ -22,3 +22,7 @@
 .card-container:active {
   border: 2px solid map-get($colors, 'accent', 500);
 }
+
+.card-container:hover {
+  transform: scale(1.1);
+}
