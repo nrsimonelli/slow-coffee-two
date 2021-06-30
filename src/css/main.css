@@ -46,7 +46,11 @@ body {
 }
 
 .card-container {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+.card-dull {
   border-radius: 10px;
   border: 2px solid transparent;
 }
@@ -71,11 +75,11 @@ body {
 }
 
 .fill-primary {
-  fill: #d4d4d8;
+  fill: #d9d9d9;
 }
 
 .fill-secondary {
-  fill: #d4d4d8;
+  fill: #d9d9d9;
 }
 
 .fill-accent {
@@ -89,7 +93,7 @@ body {
   fill: #141414;
 }
 :root.dark .fill-accent {
-  fill: #d4d4d8;
+  fill: #bfbfbf;
 }
 
 .button {
@@ -142,6 +146,10 @@ body {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.shadow {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .root {
@@ -10518,16 +10526,36 @@ body {
   align-items: flex-end;
 }
 
-.hidden {
-  display: none;
-}
-
-.initial {
+.display-initial {
   display: initial;
 }
 
-.inherit {
+.hover\:display-initial:hover {
+  display: initial;
+}
+
+.display-inherit {
   display: inherit;
+}
+
+.hover\:display-inherit:hover {
+  display: inherit;
+}
+
+.display-hidden {
+  display: hidden;
+}
+
+.hover\:display-hidden:hover {
+  display: hidden;
+}
+
+.display-none {
+  display: none;
+}
+
+.hover\:display-none:hover {
+  display: none;
 }
 
 .flex {
@@ -26681,16 +26709,36 @@ body {
     align-items: flex-end;
   }
 
-  .hidden {
-    display: none;
-  }
-
-  .initial {
+  .sm\:display-initial {
     display: initial;
   }
 
-  .inherit {
+  .sm\:hover\:display-initial:hover {
+    display: initial;
+  }
+
+  .sm\:display-inherit {
     display: inherit;
+  }
+
+  .sm\:hover\:display-inherit:hover {
+    display: inherit;
+  }
+
+  .sm\:display-hidden {
+    display: hidden;
+  }
+
+  .sm\:hover\:display-hidden:hover {
+    display: hidden;
+  }
+
+  .sm\:display-none {
+    display: none;
+  }
+
+  .sm\:hover\:display-none:hover {
+    display: none;
   }
 
   .flex {
@@ -42844,16 +42892,36 @@ body {
     align-items: flex-end;
   }
 
-  .hidden {
-    display: none;
-  }
-
-  .initial {
+  .md\:display-initial {
     display: initial;
   }
 
-  .inherit {
+  .md\:hover\:display-initial:hover {
+    display: initial;
+  }
+
+  .md\:display-inherit {
     display: inherit;
+  }
+
+  .md\:hover\:display-inherit:hover {
+    display: inherit;
+  }
+
+  .md\:display-hidden {
+    display: hidden;
+  }
+
+  .md\:hover\:display-hidden:hover {
+    display: hidden;
+  }
+
+  .md\:display-none {
+    display: none;
+  }
+
+  .md\:hover\:display-none:hover {
+    display: none;
   }
 
   .flex {
@@ -59007,16 +59075,36 @@ body {
     align-items: flex-end;
   }
 
-  .hidden {
-    display: none;
-  }
-
-  .initial {
+  .lg\:display-initial {
     display: initial;
   }
 
-  .inherit {
+  .lg\:hover\:display-initial:hover {
+    display: initial;
+  }
+
+  .lg\:display-inherit {
     display: inherit;
+  }
+
+  .lg\:hover\:display-inherit:hover {
+    display: inherit;
+  }
+
+  .lg\:display-hidden {
+    display: hidden;
+  }
+
+  .lg\:hover\:display-hidden:hover {
+    display: hidden;
+  }
+
+  .lg\:display-none {
+    display: none;
+  }
+
+  .lg\:hover\:display-none:hover {
+    display: none;
   }
 
   .flex {
@@ -75170,16 +75258,36 @@ body {
     align-items: flex-end;
   }
 
-  .hidden {
-    display: none;
-  }
-
-  .initial {
+  .xl\:display-initial {
     display: initial;
   }
 
-  .inherit {
+  .xl\:hover\:display-initial:hover {
+    display: initial;
+  }
+
+  .xl\:display-inherit {
     display: inherit;
+  }
+
+  .xl\:hover\:display-inherit:hover {
+    display: inherit;
+  }
+
+  .xl\:display-hidden {
+    display: hidden;
+  }
+
+  .xl\:hover\:display-hidden:hover {
+    display: hidden;
+  }
+
+  .xl\:display-none {
+    display: none;
+  }
+
+  .xl\:hover\:display-none:hover {
+    display: none;
   }
 
   .flex {

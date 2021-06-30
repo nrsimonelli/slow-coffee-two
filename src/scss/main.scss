@@ -19,6 +19,10 @@
 .capitalize {
   text-transform: capitalize;
 }
+.shadow {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
 .root {
   background-image: linear-gradient(
     to bottom right,
@@ -122,16 +126,10 @@
     }
   }
 
-  .hidden {
-    display: none;
-  }
-
-  .initial {
-    display: initial;
-  }
-
-  .inherit {
-    display: inherit;
+  .display {
+    @include options($display, $props...) using ($value) {
+      display: $value;
+    }
   }
 
   .flex {

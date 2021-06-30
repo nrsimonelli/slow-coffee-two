@@ -8,10 +8,10 @@
 }
 
 .fill-primary {
-  fill: map-get($colors, 'primary', 300);
+  fill: map-get($colors, 'white', 500);
 }
 .fill-secondary {
-  fill: map-get($colors, 'primary', 300);
+  fill: map-get($colors, 'white', 500);
 }
 .fill-accent {
   fill: map-get($colors, 'black', 800);
@@ -25,6 +25,6 @@
     fill: map-get($colors, 'black', 800);
   }
   .fill-accent {
-    fill: map-get($colors, 'primary', 300);
+    fill: map-get($colors, 'black', 200);
   }
 }

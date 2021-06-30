@@ -5,6 +5,11 @@ import OkButton from './OkButton';
 import { BsLightningFill } from 'react-icons/bs';
 import { BiCheck } from 'react-icons/bi';
 import { RiCupFill } from 'react-icons/ri';
+import {
+  GiCoffeeCup,
+  GiCoffeeMug,
+  GiCoffeePot,
+} from 'react-icons/gi';
 
 // modal states
 const STATES = {
@@ -107,8 +112,8 @@ const Modal = (props) => {
                 <div
                   className={
                     activeCardState.volume === CARD.ONE
-                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
-                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
                   }
                   onClick={() =>
                     setActiveCardState({
@@ -117,17 +122,18 @@ const Modal = (props) => {
                     })
                   }
                 >
-                  <div>Volume 1</div>
-                  <div>image</div>
-                  <div>text</div>
+                  <div className='text-center py-2 display-none sm:display-initial'>
+                    1 to 2 Cups
+                  </div>
+                  <GiCoffeeCup className='h-8 w-8 mx-auto py-2 my-auto' />
                 </div>
 
                 {/* Choice Two */}
                 <div
                   className={
                     activeCardState.volume === CARD.TWO
-                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
-                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
                   }
                   onClick={() =>
                     setActiveCardState({
@@ -136,16 +142,17 @@ const Modal = (props) => {
                     })
                   }
                 >
-                  <div>Volume 2</div>
-                  <div>image</div>
-                  <div>text</div>
+                  <div className='text-center py-2 display-none sm:display-initial'>
+                    2 to 3 Cups
+                  </div>
+                  <GiCoffeeMug className='h-8 w-8 mx-auto py-2 my-auto' />
                 </div>
                 {/* Choice Three */}
                 <div
                   className={
                     activeCardState.volume === CARD.THREE
-                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
-                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
                   }
                   onClick={() =>
                     setActiveCardState({
@@ -154,9 +161,10 @@ const Modal = (props) => {
                     })
                   }
                 >
-                  <div>Volume 3</div>
-                  <div>image</div>
-                  <div>text</div>
+                  <div className='text-center py-2 display-none sm:display-initial'>
+                    4+ Cups
+                  </div>
+                  <GiCoffeePot className='h-8 w-8 mx-auto py-2 my-auto' />
                 </div>
               </div>
               <div className='w-full flex-row justify-center items-center py-6'>
@@ -167,6 +175,7 @@ const Modal = (props) => {
                   Cancel
                 </div>
                 <OkButton
+                  title='next'
                   isActive={activeCardState.volume}
                   handleOk={handleOk}
                 />
@@ -180,8 +189,8 @@ const Modal = (props) => {
                 <div
                   className={
                     activeCardState.strength === CARD.ONE
-                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
-                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
                   }
                   onClick={() =>
                     setActiveCardState({
@@ -199,8 +208,8 @@ const Modal = (props) => {
                 <div
                   className={
                     activeCardState.strength === CARD.TWO
-                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
-                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
                   }
                   onClick={() =>
                     setActiveCardState({
@@ -217,8 +226,8 @@ const Modal = (props) => {
                 <div
                   className={
                     activeCardState.strength === CARD.THREE
-                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
-                      : 'card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
                   }
                   onClick={() =>
                     setActiveCardState({
@@ -240,6 +249,7 @@ const Modal = (props) => {
                   Back
                 </div>
                 <OkButton
+                  title='next'
                   isActive={activeCardState.strength}
                   handleOk={handleOk}
                 />
@@ -250,10 +260,10 @@ const Modal = (props) => {
             <>
               <div className='p-6 form-container flex-row justify-center'>
                 {/* Choice One */}
-                <div className='card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'>
+                <div className='card-dull dark:bg-black-600 flex p-4 m-2 shadow transition-all'>
                   <div>is this correct?</div>
-                  <div>vol + strength</div>
-                  <div>ok</div>
+                  <div>volume: {activeCardState.volume}</div>
+                  <div>strength: {activeCardState.strength}</div>
                 </div>
               </div>
               <div className='w-full flex-row justify-center items-center py-6'>
@@ -264,7 +274,8 @@ const Modal = (props) => {
                   Back
                 </div>
                 <OkButton
-                  isActive={activeCardState.confirm}
+                  title='yes'
+                  isActive={true}
                   handleOk={handleOk}
                 />
               </div>
@@ -274,14 +285,27 @@ const Modal = (props) => {
             <>
               <div className='p-6 form-container flex-row justify-center'>
                 {/* Choice One */}
-                <div className='card-container dark:bg-black-600 flex p-4 m-4 shadow cursor-pointer transition-all'>
+                <div className='card-dull dark:bg-black-600 flex p-4 m-2 shadow transition-all'>
                   <div>
                     Once you have all of this ready, hit go to start
                     the clock
                   </div>
-                  <div>some grams</div>
-                  <div>some water</div>
+                  <div>some grams: {activeCardState.volume}</div>
+                  <div>some water: {activeCardState.strength}</div>
                 </div>
+              </div>
+              <div className='w-full flex-row justify-center items-center py-6'>
+                <div
+                  className='cancel-button button border-accent-500 rounded-full mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 dark:border-accent-400 hover:bg-white-400 hover:dark:bg-black-600 p-4 text-xs text-center'
+                  onClick={handleBack}
+                >
+                  Cancel
+                </div>
+                <OkButton
+                  title='Start'
+                  isActive={true}
+                  handleOk={handleOk}
+                />
               </div>
             </>
           )}
