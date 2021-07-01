@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import ModalCard from './ModalCard';
 import OkButton from './OkButton';
 
-import { BsLightningFill } from 'react-icons/bs';
+import {
+  BsLightningFill,
+  BsDropletHalf,
+  BsDropletFill,
+  BsDroplet,
+} from 'react-icons/bs';
 import { BiCheck } from 'react-icons/bi';
 import { RiCupFill } from 'react-icons/ri';
 import {
@@ -25,6 +30,8 @@ const CARD = {
   TWO: 2,
   THREE: 3,
 };
+
+const volumeArray = [{ 1: '30' }, { 2: '40' }, { 3: '60' }];
 
 const Modal = (props) => {
   const [modalState, setModalState] = useState(STATES.VOLUME);
@@ -189,8 +196,8 @@ const Modal = (props) => {
                 <div
                   className={
                     activeCardState.strength === CARD.ONE
-                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
-                      : 'card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
                   }
                   onClick={() =>
                     setActiveCardState({
@@ -199,17 +206,18 @@ const Modal = (props) => {
                     })
                   }
                 >
-                  <div>Strength 1</div>
-                  <div>image</div>
-                  <div>text</div>
+                  <div className='text-center py-2 display-none sm:display-initial'>
+                    Sweet
+                  </div>
+                  <BsDroplet className='h-8 w-8 mx-auto py-2 my-auto' />
                 </div>
 
                 {/* Choice Two */}
                 <div
                   className={
                     activeCardState.strength === CARD.TWO
-                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
-                      : 'card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
                   }
                   onClick={() =>
                     setActiveCardState({
@@ -218,16 +226,17 @@ const Modal = (props) => {
                     })
                   }
                 >
-                  <div>Strength 2</div>
-                  <div>image</div>
-                  <div>text</div>
+                  <div className='text-center py-2 display-none sm:display-initial'>
+                    Balanced
+                  </div>
+                  <BsDropletHalf className='h-8 w-8 mx-auto py-2 my-auto' />
                 </div>
                 {/* Choice Three */}
                 <div
                   className={
                     activeCardState.strength === CARD.THREE
-                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
-                      : 'card-container dark:bg-black-600 flex p-4 m-2 shadow cursor-pointer transition-all'
+                      ? 'border-accent-500 dark:border-accent-400 card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
+                      : 'card-container dark:bg-black-600 flex w-full p-4 m-2 shadow cursor-pointer transition-all'
                   }
                   onClick={() =>
                     setActiveCardState({
@@ -236,9 +245,10 @@ const Modal = (props) => {
                     })
                   }
                 >
-                  <div>Strength 3</div>
-                  <div>image</div>
-                  <div>text</div>
+                  <div className='text-center py-2 display-none sm:display-initial'>
+                    Strong
+                  </div>
+                  <BsDropletFill className='h-8 w-8 mx-auto py-2 my-auto' />
                 </div>
               </div>
               <div className='w-full flex-row justify-center items-center py-6'>
@@ -261,8 +271,20 @@ const Modal = (props) => {
               <div className='p-6 form-container flex-row justify-center'>
                 {/* Choice One */}
                 <div className='card-dull dark:bg-black-600 flex p-4 m-2 shadow transition-all'>
-                  <div>is this correct?</div>
-                  <div>volume: {activeCardState.volume}</div>
+                  <div className=''>
+                    Make sure to prepare the following before pressing
+                    start.
+                  </div>
+                  <div>Boil 1L of water</div>
+                  <div>
+                    Grind{' '}
+                    {
+                      volumeArray[activeCardState.volume - 1][
+                        activeCardState.volume
+                      ]
+                    }
+                    g of coffee
+                  </div>
                   <div>strength: {activeCardState.strength}</div>
                 </div>
               </div>
@@ -274,7 +296,7 @@ const Modal = (props) => {
                   Back
                 </div>
                 <OkButton
-                  title='yes'
+                  title='start'
                   isActive={true}
                   handleOk={handleOk}
                 />
