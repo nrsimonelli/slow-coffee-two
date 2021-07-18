@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ModalCard from './ModalCard';
 import OkButton from './OkButton';
+import Timer from '../Timer/Timer';
 
 import {
   BsLightningFill,
@@ -306,28 +307,7 @@ const Modal = (props) => {
           {modalState === STATES.GO && (
             <>
               <div className='p-6 form-container flex-row justify-center'>
-                {/* Choice One */}
-                <div className='card-dull dark:bg-black-600 flex p-4 m-2 shadow transition-all'>
-                  <div>
-                    Once you have all of this ready, hit go to start
-                    the clock
-                  </div>
-                  <div>some grams: {activeCardState.volume}</div>
-                  <div>some water: {activeCardState.strength}</div>
-                </div>
-              </div>
-              <div className='w-full flex-row justify-center items-center py-6'>
-                <div
-                  className='cancel-button button border-accent-500 rounded-full mt-8 mb-4 mx-4 w-32 bg-transparent text-accent-500 dark:text-accent-400 dark:border-accent-400 hover:bg-white-400 hover:dark:bg-black-600 p-4 text-xs text-center'
-                  onClick={handleBack}
-                >
-                  Cancel
-                </div>
-                <OkButton
-                  title='Start'
-                  isActive={true}
-                  handleOk={handleOk}
-                />
+                <Timer />
               </div>
             </>
           )}
