@@ -100,6 +100,7 @@ export const Text = styled('span', {
     },
     inline: {
       true: {
+        mt: 0,
         display: 'inline-flex',
       },
     },
@@ -173,6 +174,7 @@ export const Text = styled('span', {
 });
 
 export const TextTitle = styled(Text, {
+  mb: '$4',
   defaultVariants: {
     line: '3',
     size: '8',

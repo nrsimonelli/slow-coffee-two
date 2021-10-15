@@ -1,10 +1,17 @@
 import React from 'react';
 
-import { globalCss, styled } from './stitches.config';
+import { globalCss } from './stitches.config';
+import { Container } from './components/Container';
+import { Flex } from './components/Flex';
+import {
+  Text,
+  TextHead,
+  TextSub,
+  TextTitle,
+} from './components/Text';
 
 const globalStyles = globalCss({
   '*': {
-    boxSizing: 'border-box',
     transition: 'all 200ms ease-out 0s',
   },
   html: {
@@ -21,39 +28,40 @@ const globalStyles = globalCss({
   },
 });
 
-const Container = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  minHeight: '100vh',
-});
-
-const Text = styled('p', {
-  lineHeight: '$1',
-  fontWeight: '$1',
-});
-const TextHead = styled('p', {
-  fontSize: '$6',
-  lineHeight: '$2',
-  fontWeight: '$2',
-});
-
-const Flex = styled('div', {
-  mx: 'auto',
-  maxWidth: '400px',
-});
-
 const App = () => {
   globalStyles();
   return (
-    <Container>
-      <TextHead>hello</TextHead>
-      <Flex>
+    <Container responsive>
+      <Flex direction='column' pad='4'>
+        <TextTitle>
+          Brew{' '}
+          <TextHead size='8' inline>
+            Excellent
+          </TextHead>{' '}
+          Coffee
+        </TextTitle>
+        <TextHead case='initial'>
+          Interpol at is in a cup anyway?
+        </TextHead>
         <Text>
-          Welcome to my Slow Coffee Rework. My first solo project as a
-          JavaScript developer. A lot has changed since then, I'm
-          excited to take you through it.
+          Welcome to my Slow Coffee Rework. My first{' '}
+          <TextSub inline>solo project</TextSub> as a JavaScript
+          developer. A lot has changed since then, I'm excited to take
+          you through it.
+        </Text>
+
+        <TextSub>Important but not too important heading.</TextSub>
+        <Text>
+          In vehicula dolor ac quam dapibus vehicula. Nulla erat diam,
+          ullamcorper vel dui et, luctus tincidunt nisi. Etiam
+          ullamcorper neque et mauris pharetra, quis varius libero
+          dictum. Integer et metus lobortis, consectetur nisi quis,
+          efficitur urna. Nunc quis congue purus. Fusce massa leo,
+          aliquet vitae euismod vitae, posuere in dolor. Curabitur ut
+          quam magna. Suspendisse euismod libero sed viverra
+          tristique. Curabitur ullamcorper commodo massa, et
+          consectetur libero faucibus quis. Quisque tempor
+          sollicitudin libero eget sollicitudin.
         </Text>
       </Flex>
     </Container>
