@@ -110,12 +110,30 @@ export const { styled, config, theme, createTheme, globalCss } =
         heading: 'inherit',
         monospace: 'Menlo, monospace',
       },
-      fontSizes: {},
+      fontSizes: {
+        1: '12px',
+        2: '14px',
+        3: '16px',
+        4: '20px',
+        5: '24px',
+        6: '32px',
+        7: '48px',
+        8: '64px',
+        9: '96px',
+      },
       space: {},
       sizes: {},
       radii: {},
-      fontWeights: {},
-      lineHeights: {},
+      fontWeights: {
+        1: '400',
+        2: '600',
+        3: '700',
+      },
+      lineHeights: {
+        1: '1.75',
+        2: '1.25',
+        3: '1',
+      },
       letterSpacings: {},
       borderWidths: {},
       borderStyles: {},
@@ -125,7 +143,7 @@ export const { styled, config, theme, createTheme, globalCss } =
     },
     media: {},
     utils: {
-      bc: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
+      bg: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
         backgroundColor: value,
       }),
       p: (value: Stitches.PropertyValue<'padding'>) => ({
