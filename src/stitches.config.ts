@@ -7,6 +7,8 @@ import {
   oliveDark,
   bronze,
   bronzeDark,
+  whiteA,
+  blackA,
 } from '@radix-ui/colors';
 import { createStitches } from '@stitches/react';
 import type * as Stitches from '@stitches/react';
@@ -19,6 +21,8 @@ export const { styled, config, theme, createTheme, globalCss } =
         ...slate,
         ...olive,
         ...bronze,
+        ...whiteA,
+        ...blackA,
 
         // App backgrounds and raised components
         // 1 - 2 - 3
@@ -31,6 +35,23 @@ export const { styled, config, theme, createTheme, globalCss } =
         // low and high contrast text
         // 11 - 12
         // Dark modes use the same scale
+
+        appBg1: '$base1',
+        appBg2: '$base2',
+        appBg3: '$base3',
+
+        colorBg1: '$primary9',
+        colorBg2: '$primary10',
+
+        border1: '$base6',
+        border2: '$base7',
+        border3: '$base8',
+
+        lowContrast: '$base11',
+        hiContrast: '$base12',
+
+        white: '$whiteA12',
+        black: '$blackA12',
 
         base1: '$slate1',
         base2: '$slate2',
