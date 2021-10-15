@@ -1,10 +1,89 @@
+import {
+  mauve,
+  mauveDark,
+  slate,
+  slateDark,
+  olive,
+  oliveDark,
+  bronze,
+  bronzeDark,
+} from '@radix-ui/colors';
 import { createStitches } from '@stitches/react';
 import type * as Stitches from '@stitches/react';
 
 export const { styled, config, theme, createTheme, globalCss } =
   createStitches({
     theme: {
-      colors: {},
+      colors: {
+        ...mauve,
+        ...slate,
+        ...olive,
+        ...bronze,
+
+        // App backgrounds and raised components
+        // 1 - 2 - 3
+        // normal, hover, active. Buttons are +1 to each
+        // 3 - 4 - 5
+        // borders non-interactive, interactive, hover
+        // 6 - 7 - 8
+        // pure color & solid bg
+        // 9 - 10
+        // low and high contrast text
+        // 11 - 12
+        // Dark modes use the same scale
+
+        base1: '$slate1',
+        base2: '$slate2',
+        base3: '$slate3',
+        base4: '$slate4',
+        base5: '$slate5',
+        base6: '$slate6',
+        base7: '$slate7',
+        base8: '$slate8',
+        base9: '$slate9',
+        base10: '$slate10',
+        base11: '$slate11',
+        base12: '$slate12',
+
+        primary1: '$mauve1',
+        primary2: '$mauve2',
+        primary3: '$mauve3',
+        primary4: '$mauve4',
+        primary5: '$mauve5',
+        primary6: '$mauve6',
+        primary7: '$mauve7',
+        primary8: '$mauve8',
+        primary9: '$mauve9',
+        primary10: '$mauve10',
+        primary11: '$mauve11',
+        primary12: '$mauve12',
+
+        secondary1: '$olive1',
+        secondary2: '$olive2',
+        secondary3: '$olive3',
+        secondary4: '$olive4',
+        secondary5: '$olive5',
+        secondary6: '$olive6',
+        secondary7: '$olive7',
+        secondary8: '$olive8',
+        secondary9: '$olive9',
+        secondary10: '$olive10',
+        secondary11: '$olive11',
+        secondary12: '$olive12',
+
+        accent1: '$bronze1',
+        accent2: '$bronze2',
+        accent3: '$bronze3',
+        accent4: '$bronze4',
+        accent5: '$bronze5',
+        accent6: '$bronze6',
+        accent7: '$bronze7',
+        accent8: '$bronze8',
+        accent9: '$bronze9',
+        accent10: '$bronze10',
+        accent11: '$bronze11',
+        accent12: '$bronze12',
+      },
       fonts: {
         body: 'Avenir Next, system-ui, sans-serif',
         heading: 'inherit',
@@ -89,5 +168,10 @@ export const { styled, config, theme, createTheme, globalCss } =
 export type CSS = Stitches.CSS<typeof config>;
 
 export const darkTheme = createTheme('dark-theme', {
-  colors: {},
+  colors: {
+    ...mauveDark,
+    ...slateDark,
+    ...oliveDark,
+    ...bronzeDark,
+  },
 });
