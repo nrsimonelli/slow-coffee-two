@@ -12,6 +12,8 @@ import {
 } from '@radix-ui/colors';
 import { createStitches } from '@stitches/react';
 import type * as Stitches from '@stitches/react';
+import { SCREENS } from './constants';
+import { THEMES } from './constants';
 
 export const { styled, config, theme, createTheme, globalCss } =
   createStitches({
@@ -143,10 +145,13 @@ export const { styled, config, theme, createTheme, globalCss } =
         8: '256px',
         9: '512px',
         full: '100%',
-        screenHeight: '100vh',
-        screenWidth: '100vw',
-        bp1: '$media$bp1',
-        bp2: '$media$bp2',
+        vh: '100vh',
+        vw: '100vw',
+        bp1: SCREENS[1],
+        bp2: SCREENS[2],
+        bp3: SCREENS[3],
+        bp4: SCREENS[4],
+        bp5: SCREENS[5],
       },
       radii: {
         1: 0,
@@ -180,11 +185,11 @@ export const { styled, config, theme, createTheme, globalCss } =
       transitions: {},
     },
     media: {
-      bp1: '(min-width: 640px)',
-      bp2: '(min-width: 768px)',
-      bp3: '(min-width: 1024px)',
-      bp4: '(min-width: 1280px)',
-      bp5: '(min-width: 1536px)',
+      bp1: `(min-width: ${SCREENS[1]})`,
+      bp2: `(min-width: ${SCREENS[2]})`,
+      bp3: `(min-width: ${SCREENS[3]})`,
+      bp4: `(min-width: ${SCREENS[4]})`,
+      bp5: `(min-width: ${SCREENS[5]})`,
     },
     utils: {
       bg: (value: Stitches.PropertyValue<'backgroundColor'>) => ({
@@ -250,7 +255,7 @@ export const { styled, config, theme, createTheme, globalCss } =
 
 export type CSS = Stitches.CSS<typeof config>;
 
-export const darkTheme = createTheme('dark-theme', {
+export const darkTheme = createTheme(THEMES.DARK_THEME, {
   colors: {
     ...mauveDark,
     ...slateDark,
