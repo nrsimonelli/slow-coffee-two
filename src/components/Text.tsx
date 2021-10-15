@@ -2,12 +2,25 @@ import { styled } from '../stitches.config';
 
 export const Text = styled('span', {
   // Reset
-  lineHeight: '$1',
-  fontWeight: '$1',
+  lineHeight: '1',
+  fontWeight: '400',
   margin: '0',
   display: 'block',
 
+  mt: '$4',
+
   variants: {
+    line: {
+      1: {
+        lineHeight: '$1',
+      },
+      2: {
+        lineHeight: '$2',
+      },
+      3: {
+        lineHeight: '$3',
+      },
+    },
     size: {
       1: {
         fontSize: '$1',
@@ -85,6 +98,11 @@ export const Text = styled('span', {
         textTransform: 'initial',
       },
     },
+    inline: {
+      true: {
+        display: 'inline-flex',
+      },
+    },
     gradient: {
       true: {
         clip: 'text',
@@ -143,15 +161,47 @@ export const Text = styled('span', {
       },
     },
   ],
-  defaultVariants: {},
+  defaultVariants: {
+    line: '1',
+    size: '3',
+    weight: '1',
+    color: 'hiContrast',
+    case: 'initial',
+    inline: false,
+    gradient: 'false',
+  },
 });
 
 export const TextTitle = styled(Text, {
-  defaultVariants: {},
+  defaultVariants: {
+    line: '3',
+    size: '8',
+    weight: '1',
+    color: 'hiContrast',
+    case: 'capitalize',
+    inline: false,
+    gradient: false,
+  },
 });
 export const TextHead = styled(Text, {
-  defaultVariants: {},
+  defaultVariants: {
+    line: '3',
+    size: '6',
+    weight: '2',
+    color: 'hiContrast',
+    case: 'initial',
+    inline: false,
+    gradient: false,
+  },
 });
 export const TextSub = styled(Text, {
-  defaultVariants: {},
+  defaultVariants: {
+    line: '1',
+    size: '3',
+    weight: '3',
+    color: 'hiContrast',
+    case: 'initial',
+    inline: false,
+    gradient: false,
+  },
 });

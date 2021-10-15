@@ -61,6 +61,23 @@ export const Flex = styled('div', {
         flexWrap: 'wrap-reverse',
       },
     },
+    pad: {
+      1: {
+        p: '$1',
+      },
+      2: {
+        p: '$2',
+      },
+      3: {
+        p: '$3',
+      },
+      4: {
+        p: '$4',
+      },
+      5: {
+        p: '$5',
+      },
+    },
     border: {
       true: {
         boxShadow: 'inset 0 0 0 1px $colors$primary8',
@@ -72,5 +89,7 @@ export const Flex = styled('div', {
     align: 'stretch',
     justify: 'start',
     wrap: 'noWrap',
+    pad: '1',
+    border: false,
   },
 });
