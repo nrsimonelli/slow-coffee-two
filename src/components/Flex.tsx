@@ -89,7 +89,7 @@ export const Flex = styled('div', {
     align: 'stretch',
     justify: 'start',
     wrap: 'noWrap',
+    // default padding none
     pad: '1',
-    border: false,
   },
 });
