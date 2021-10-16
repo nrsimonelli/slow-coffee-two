@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { RiMoonClearLine } from 'react-icons/ri';
-import { Button } from '../Button';
+import { ToggleButton } from '../Button';
 import { ThemeContext } from './ThemeContext';
 import { THEMES } from '../../constants';
 import { darkTheme } from '../../stitches.config';
@@ -32,8 +32,8 @@ export const ThemeToggle = ({
   };
 
   return (
-    <Button size='4' onClick={handleThemeChange}>
+    <ToggleButton onClick={handleThemeChange}>
       {children}
-    </Button>
+    </ToggleButton>
   );
 };

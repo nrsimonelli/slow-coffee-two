@@ -5,9 +5,15 @@ import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 const Nav = () => {
   return (
     <Flex
+      border
+      pad='4'
       align='center'
-      justify='center'
-      css={{ height: '$6', bg: '$base7' }}
+      justify='end'
+      css={{
+        height: '$6',
+        bg: '$base7',
+        '@bp1': { bg: '$accent12' },
+      }}
     >
       <ThemeToggle />
     </Flex>

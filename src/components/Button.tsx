@@ -118,122 +118,43 @@ export const Button = styled('button', {
           backgroundColor: '$base6',
         },
       },
+      transparent: {
+        backgroundColor: '$ghost1',
+        color: '$hiContrast',
+        boxShadow: 'inset 0 0 0 1px $colors$ghost3',
+        '&:hover': {
+          backgroundColor: '$ghost2',
+        },
+        '&:active': {
+          backgroundColor: '$ghost3',
+        },
+        '&:focus': {
+          boxShadow:
+            'inset 0 0 0 1px $colors$ghost4, 0 0 0 1px $colors$ghost4',
+        },
+      },
     },
   },
-  compoundVariants: [
-    {
-      color: 'primary',
-      type: 'ghost',
-      css: {
-        backgroundColor: '$primary1',
-        boxShadow: 'inset 0 0 0 1px $colors$primary7',
-        '&:hover': {
-          backgroundColor: '$primary1',
-          boxShadow: 'inset 0 0 0 1px $colors$primary8',
-        },
-        '&:focus': {
-          boxShadow:
-            'inset 0 0 0 1px $colors$primary8, 0 0 0 1px $colors$primary8',
-        },
-      },
-    },
-    {
-      color: 'secondary',
-      type: 'ghost',
-      css: {
-        backgroundColor: '$secondary1',
-        boxShadow: 'inset 0 0 0 1px $colors$secondary7',
-        '&:hover': {
-          backgroundColor: '$secondary1',
-          boxShadow: 'inset 0 0 0 1px $colors$secondary8',
-        },
-        '&:focus': {
-          boxShadow:
-            'inset 0 0 0 1px $colors$secondary8, 0 0 0 1px $colors$secondary8',
-        },
-      },
-    },
-    {
-      color: 'accent',
-      type: 'ghost',
-      css: {
-        backgroundColor: '$accent1',
-        boxShadow: 'inset 0 0 0 1px $colors$accent7',
-        '&:hover': {
-          backgroundColor: '$accent1',
-          boxShadow: 'inset 0 0 0 1px $colors$accent8',
-        },
-        '&:focus': {
-          boxShadow:
-            'inset 0 0 0 1px $colors$accent8, 0 0 0 1px $colors$accent8',
-        },
-      },
-    },
-    {
-      color: 'base',
-      type: 'ghost',
-      css: {
-        backgroundColor: '$base1',
-        boxShadow: 'inset 0 0 0 1px $colors$base7',
-        '&:hover': {
-          backgroundColor: '$base1',
-          boxShadow: 'inset 0 0 0 1px $colors$base8',
-        },
-        '&:focus': {
-          boxShadow:
-            'inset 0 0 0 1px $colors$base8, 0 0 0 1px $colors$base8',
-        },
-      },
-    },
-    {
-      color: 'primary',
-      type: 'hot',
-      css: {
-        color: '$white',
-        backgroundColor: '$primary9',
-        '&:hover': {
-          backgroundColor: '$primary10',
-        },
-      },
-    },
-    {
-      color: 'secondary',
-      type: 'hot',
-      css: {
-        color: '$white',
-        backgroundColor: '$secondary9',
-        '&:hover': {
-          backgroundColor: '$secondary10',
-        },
-      },
-    },
-    {
-      color: 'accent',
-      type: 'hot',
-      css: {
-        color: '$white',
-        backgroundColor: '$accent9',
-        '&:hover': {
-          backgroundColor: '$accent10',
-        },
-      },
-    },
-    {
-      color: 'base',
-      type: 'hot',
-      css: {
-        color: '$white',
-        backgroundColor: '$base9',
-        '&:hover': {
-          backgroundColor: '$base10',
-        },
-      },
-    },
-  ],
+
   defaultVariants: {
-    shape: '1',
-    size: '1',
-    type: 'light',
-    color: 'primary',
+    shape: '2',
+    size: '2',
+  },
+});
+
+export const ToggleButton = styled(Button, {
+  // boxShadow: 'inset 0 0 0 1px $colors$base7',
+  // '&:hover': {
+  //   backgroundColor: '$base6',
+  //   boxShadow: 'inset 0 0 0 1px $colors$base8',
+  // },
+  // '&:focus': {
+  //   boxShadow:
+  //     'inset 0 0 0 1px $colors$base8, 0 0 0 1px $colors$base8',
+  // },
+  defaultVariants: {
+    shape: '2',
+    size: '4',
+    color: 'transparent',
   },
 });

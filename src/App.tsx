@@ -31,11 +31,12 @@ const globalStyles = globalCss({
 
 const App = () => {
   globalStyles();
+
   return (
     <>
       <Nav />
       <Container responsive screen>
-        <Flex direction='column' pad='4'>
+        <Flex direction='column' align='start' pad='4'>
           <TextTitle>
             Brew{' '}
             <TextHead size='8' inline>
@@ -50,7 +51,6 @@ const App = () => {
             developer. A lot has changed since then, I'm excited to
             take you through it.
           </Text>
-
           <TextSub>Important but not too important</TextSub>
           <Text>
             In vehicula dolor ac quam dapibus vehicula. Nulla erat
