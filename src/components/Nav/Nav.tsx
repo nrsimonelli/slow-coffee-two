@@ -7,7 +7,7 @@ const Nav = () => {
     <Flex
       align='center'
       justify='center'
-      css={{ height: '$6', bg: '$bronze9' }}
+      css={{ height: '$6', bg: '$base7' }}
     >
       <ThemeToggle />
     </Flex>

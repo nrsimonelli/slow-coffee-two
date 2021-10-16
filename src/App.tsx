@@ -43,9 +43,7 @@ const App = () => {
             </TextHead>{' '}
             Coffee
           </TextTitle>
-          <TextHead case='initial'>
-            Interpol at is in a cup anyway?
-          </TextHead>
+          <TextHead case='initial'>What is in a cup anyway?</TextHead>
           <Text>
             Welcome to my Slow Coffee Rework. My first{' '}
             <TextSub inline>solo project</TextSub> as a JavaScript
@@ -53,7 +51,7 @@ const App = () => {
             take you through it.
           </Text>
 
-          <TextSub>Important but not too important heading.</TextSub>
+          <TextSub>Important but not too important</TextSub>
           <Text>
             In vehicula dolor ac quam dapibus vehicula. Nulla erat
             diam, ullamcorper vel dui et, luctus tincidunt nisi. Etiam

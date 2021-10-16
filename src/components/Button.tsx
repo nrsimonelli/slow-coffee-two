@@ -48,18 +48,6 @@ export const Button = styled('button', {
         borderRadius: '$6',
       },
     },
-    type: {
-      ghost: {
-        backgroundColor: 'transparent',
-        boxShadow: 'none',
-      },
-      hot: {
-        fontWeight: '$2',
-      },
-      light: {
-        fontWeight: '$2',
-      },
-    },
     size: {
       1: {
         fontSize: '$1',
@@ -75,6 +63,18 @@ export const Button = styled('button', {
       },
       5: {
         fontSize: '$5',
+      },
+    },
+    type: {
+      ghost: {
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
+      },
+      hot: {
+        fontWeight: '$2',
+      },
+      light: {
+        fontWeight: '$2',
       },
     },
     color: {
@@ -230,5 +230,10 @@ export const Button = styled('button', {
       },
     },
   ],
-  defaultVariants: {},
+  defaultVariants: {
+    shape: '1',
+    size: '1',
+    type: 'light',
+    color: 'primary',
+  },
 });
