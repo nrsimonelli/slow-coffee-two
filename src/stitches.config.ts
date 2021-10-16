@@ -55,6 +55,11 @@ export const { styled, config, theme, createTheme, globalCss } =
         white: '$whiteA12',
         black: '$blackA12',
 
+        ghost1: '$blackA3',
+        ghost2: '$blackA4',
+        ghost3: '$blackA5',
+        ghost4: '$blackA7',
+
         base1: '$slate1',
         base2: '$slate2',
         base3: '$slate3',
@@ -280,6 +285,11 @@ export const darkTheme = createTheme(THEMES.DARK_THEME, {
 
     white: '$whiteA12',
     black: '$blackA12',
+
+    ghost1: '$whiteA3',
+    ghost2: '$whiteA4',
+    ghost3: '$whiteA5',
+    ghost4: '$whiteA7',
 
     base1: '$slate1',
     base2: '$slate2',
