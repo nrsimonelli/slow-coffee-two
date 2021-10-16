@@ -9,6 +9,7 @@ import {
   TextSub,
   TextTitle,
 } from './components/Text';
+import Nav from './components/Nav/Nav';
 
 const globalStyles = globalCss({
   '*': {
@@ -31,40 +32,43 @@ const globalStyles = globalCss({
 const App = () => {
   globalStyles();
   return (
-    <Container responsive>
-      <Flex direction='column' pad='4'>
-        <TextTitle>
-          Brew{' '}
-          <TextHead size='8' inline>
-            Excellent
-          </TextHead>{' '}
-          Coffee
-        </TextTitle>
-        <TextHead case='initial'>
-          Interpol at is in a cup anyway?
-        </TextHead>
-        <Text>
-          Welcome to my Slow Coffee Rework. My first{' '}
-          <TextSub inline>solo project</TextSub> as a JavaScript
-          developer. A lot has changed since then, I'm excited to take
-          you through it.
-        </Text>
+    <>
+      <Nav />
+      <Container responsive screen>
+        <Flex direction='column' pad='4'>
+          <TextTitle>
+            Brew{' '}
+            <TextHead size='8' inline>
+              Excellent
+            </TextHead>{' '}
+            Coffee
+          </TextTitle>
+          <TextHead case='initial'>
+            Interpol at is in a cup anyway?
+          </TextHead>
+          <Text>
+            Welcome to my Slow Coffee Rework. My first{' '}
+            <TextSub inline>solo project</TextSub> as a JavaScript
+            developer. A lot has changed since then, I'm excited to
+            take you through it.
+          </Text>
 
-        <TextSub>Important but not too important heading.</TextSub>
-        <Text>
-          In vehicula dolor ac quam dapibus vehicula. Nulla erat diam,
-          ullamcorper vel dui et, luctus tincidunt nisi. Etiam
-          ullamcorper neque et mauris pharetra, quis varius libero
-          dictum. Integer et metus lobortis, consectetur nisi quis,
-          efficitur urna. Nunc quis congue purus. Fusce massa leo,
-          aliquet vitae euismod vitae, posuere in dolor. Curabitur ut
-          quam magna. Suspendisse euismod libero sed viverra
-          tristique. Curabitur ullamcorper commodo massa, et
-          consectetur libero faucibus quis. Quisque tempor
-          sollicitudin libero eget sollicitudin.
-        </Text>
-      </Flex>
-    </Container>
+          <TextSub>Important but not too important heading.</TextSub>
+          <Text>
+            In vehicula dolor ac quam dapibus vehicula. Nulla erat
+            diam, ullamcorper vel dui et, luctus tincidunt nisi. Etiam
+            ullamcorper neque et mauris pharetra, quis varius libero
+            dictum. Integer et metus lobortis, consectetur nisi quis,
+            efficitur urna. Nunc quis congue purus. Fusce massa leo,
+            aliquet vitae euismod vitae, posuere in dolor. Curabitur
+            ut quam magna. Suspendisse euismod libero sed viverra
+            tristique. Curabitur ullamcorper commodo massa, et
+            consectetur libero faucibus quis. Quisque tempor
+            sollicitudin libero eget sollicitudin.
+          </Text>
+        </Flex>
+      </Container>
+    </>
   );
 };
 
