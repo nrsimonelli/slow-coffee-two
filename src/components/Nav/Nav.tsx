@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from '../Container';
 import { Flex } from '../Flex';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 

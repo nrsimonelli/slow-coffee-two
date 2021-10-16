@@ -166,7 +166,7 @@ export const Text = styled('span', {
     line: '1',
     size: '3',
     weight: '1',
-    color: 'hiContrast',
+    color: 'lowContrast',
     case: 'initial',
     inline: false,
     gradient: 'false',
