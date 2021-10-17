@@ -3,6 +3,7 @@ import { Flex } from '../Flex';
 import { Div } from '../Div';
 import { GiCoffeePot } from 'react-icons/gi';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
+import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
   return (
@@ -24,7 +25,23 @@ const Nav = () => {
       <Div
         css={{ display: 'none', '@bp1': { display: 'inline-flex' } }}
       >
-        Links
+        <NavLink exact to='/' activeStyle={{ fontWeight: 'bold' }}>
+          Home
+        </NavLink>
+        <NavLink
+          exact
+          to='/about'
+          activeStyle={{ fontWeight: 'bold' }}
+        >
+          About
+        </NavLink>
+        <NavLink
+          exact
+          to='/support'
+          activeStyle={{ fontWeight: 'bold' }}
+        >
+          Support
+        </NavLink>
       </Div>
 
       <ThemeToggle />
