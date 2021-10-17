@@ -6,43 +6,40 @@ import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
+  const navActiveStyle = { fontWeight: 600, textShadow: 'none' };
   return (
     <Flex
-      border
       pad='4'
       align='center'
       justify='between'
       css={{
         height: '$6',
         bg: '$base7',
-        '@bp1': { bg: '$accent9' },
       }}
     >
       <Div css={{ '@bp1': { display: 'none' } }}>Menu</Div>
       <Div css={{ fontSize: '$5' }}>
         <GiCoffeePot />
       </Div>
-      <Div
-        css={{ display: 'none', '@bp1': { display: 'inline-flex' } }}
+      <Flex
+        justify='end'
+        css={{
+          display: 'none',
+          flexGrow: '1',
+          px: '$4',
+          '@bp1': { display: 'flex' },
+          '& > a': {
+            // mx: '$1',
+          },
+        }}
       >
-        <NavLink exact to='/' activeStyle={{ fontWeight: 'bold' }}>
+        <NavLink exact to='/' activeStyle={navActiveStyle}>
           Home
         </NavLink>
-        <NavLink
-          exact
-          to='/about'
-          activeStyle={{ fontWeight: 'bold' }}
-        >
+        <NavLink exact to='/about' activeStyle={navActiveStyle}>
           About
         </NavLink>
-        <NavLink
-          exact
-          to='/support'
-          activeStyle={{ fontWeight: 'bold' }}
-        >
-          Support
-        </NavLink>
-      </Div>
+      </Flex>
 
       <ThemeToggle />
     </Flex>

@@ -80,7 +80,7 @@ export const Flex = styled('div', {
     },
     border: {
       true: {
-        boxShadow: 'inset 0 0 0 1px $colors$primary8',
+        boxShadow: 'inset 0 0 0 2px $colors$accent9',
       },
     },
   },

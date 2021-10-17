@@ -25,6 +25,20 @@ const globalStyles = globalCss({
     bg: '$appBg1',
     color: '$hiContrast',
   },
+  a: {
+    color: 'inherit',
+    textDecoration: 'inherit',
+    textDecorationLine: 'none',
+    lineHeight: 'inherit',
+    py: '$3',
+    px: '$3',
+    mx: '$2',
+    borderRadius: '$2',
+  },
+  'a:hover': {
+    background: '$ghost2',
+    textShadow: '0px 0px 1px $colors$hiContrast',
+  },
 });
 
 const App = () => {
