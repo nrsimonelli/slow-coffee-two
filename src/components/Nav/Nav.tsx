@@ -32,7 +32,7 @@ const Nav = () => {
         css={{
           display: 'none',
           flexGrow: '1',
-          px: '$4',
+          px: '$3',
           height: '$full',
           '@bp1': { display: 'flex' },
           '& > a': {
