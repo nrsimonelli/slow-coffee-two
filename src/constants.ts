@@ -10,3 +10,9 @@ export const THEMES = {
   DEFAULT_THEME: 'default-theme',
   DARK_THEME: 'dark-theme',
 } as const;
+
+export const NAV_ROUTES = [
+  { title: 'Home', location: '/' },
+  { title: 'About', location: '/about' },
+  { title: 'Support', location: '/support' },
+] as const;

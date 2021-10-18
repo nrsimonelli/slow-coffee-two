@@ -4,17 +4,22 @@ import { Div } from '../Div';
 import { GiCoffeePot } from 'react-icons/gi';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 import { NavLink } from 'react-router-dom';
+import { NAV_ROUTES } from '../../constants';
+import { theme } from '../../stitches.config';
 
 const Nav = () => {
-  const navActiveStyle = { fontWeight: 600, textShadow: 'none' };
+  const navActiveStyle = {
+    color: `${theme.colors.hiContrast}`,
+    backgroundColor: `${theme.colors.base5}`,
+  };
   return (
     <Flex
-      pad='4'
       align='center'
       justify='between'
       css={{
         height: '$6',
-        bg: '$base7',
+        bg: '$base3',
+        px: '$4',
       }}
     >
       <Div css={{ '@bp1': { display: 'none' } }}>Menu</Div>
@@ -23,24 +28,31 @@ const Nav = () => {
       </Div>
       <Flex
         justify='end'
+        align='center'
         css={{
           display: 'none',
           flexGrow: '1',
           px: '$4',
+          height: '$full',
           '@bp1': { display: 'flex' },
           '& > a': {
-            // mx: '$1',
+            height: '$5',
+            display: 'flex',
+            alignItems: 'center',
           },
         }}
       >
-        <NavLink exact to='/' activeStyle={navActiveStyle}>
-          Home
-        </NavLink>
-        <NavLink exact to='/about' activeStyle={navActiveStyle}>
-          About
-        </NavLink>
+        {NAV_ROUTES.map((link, index) => (
+          <NavLink
+            key={index}
+            exact
+            to={link.location}
+            activeStyle={navActiveStyle}
+          >
+            {link.title}
+          </NavLink>
+        ))}
       </Flex>
-
       <ThemeToggle />
     </Flex>
   );

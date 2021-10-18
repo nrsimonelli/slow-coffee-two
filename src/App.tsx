@@ -26,18 +26,16 @@ const globalStyles = globalCss({
     color: '$hiContrast',
   },
   a: {
-    color: 'inherit',
+    color: '$lowContrast',
+    fontWeight: '$2',
     textDecoration: 'inherit',
     textDecorationLine: 'none',
-    lineHeight: 'inherit',
-    py: '$3',
-    px: '$3',
-    mx: '$2',
+    px: '$4',
+    py: '$2',
     borderRadius: '$2',
   },
   'a:hover': {
-    background: '$ghost2',
-    textShadow: '0px 0px 1px $colors$hiContrast',
+    color: '$colors$hiContrast',
   },
 });
 
@@ -47,7 +45,10 @@ const App = () => {
   return (
     <>
       <Nav />
-      <Container responsive screen>
+      <Container
+        responsive
+        css={{ minHeight: 'calc(100vh - $sizes$6)' }}
+      >
         <Switch>
           <Route path='/about' exact component={About} />
           <Route path='/support' exact component={Support} />
