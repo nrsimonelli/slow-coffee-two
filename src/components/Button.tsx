@@ -123,10 +123,10 @@ export const Button = styled('button', {
         color: '$hiContrast',
         boxShadow: 'inset 0 0 0 1px $colors$ghost3',
         '&:hover': {
-          backgroundColor: '$ghost2',
+          backgroundColor: '$base4',
         },
         '&:active': {
-          backgroundColor: '$ghost3',
+          backgroundColor: '$base5',
         },
         '&:focus': {
           boxShadow:
@@ -147,7 +147,7 @@ export const ToggleButton = styled(Button, {
   py: '$3',
   defaultVariants: {
     shape: '2',
-    size: '4',
+    size: '5',
     color: 'transparent',
   },
 });

@@ -32,7 +32,7 @@ const Nav = () => {
         css={{
           display: 'none',
           flexGrow: '1',
-          px: '$3',
+          px: '$2',
           height: '$full',
           '@bp1': { display: 'flex' },
           '& > a': {
@@ -53,6 +53,7 @@ const Nav = () => {
           </NavLink>
         ))}
       </Flex>
+
       <ThemeToggle />
     </Flex>
   );

@@ -126,7 +126,7 @@ export const Text = styled('span', {
       color: 'coffee',
       gradient: 'true',
       css: {
-        gradient: 'to left, $colors$gold11, $colors$brown11',
+        gradient: 'to left, $colors$brown11, $colors$brown9',
       },
     },
     {

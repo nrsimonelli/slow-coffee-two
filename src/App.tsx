@@ -35,7 +35,8 @@ const globalStyles = globalCss({
     borderRadius: '$2',
   },
   'a:hover': {
-    color: '$colors$hiContrast',
+    color: '$hiContrast',
+    bg: '$base5',
   },
 });
 
