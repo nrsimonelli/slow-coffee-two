@@ -83,6 +83,9 @@ export const Text = styled('span', {
       white: {
         color: '$white',
       },
+      coffee: {
+        color: '$brown11',
+      },
     },
     case: {
       upper: {
@@ -117,6 +120,13 @@ export const Text = styled('span', {
       gradient: 'true',
       css: {
         gradient: 'to right, $whiteA11, $white',
+      },
+    },
+    {
+      color: 'coffee',
+      gradient: 'true',
+      css: {
+        gradient: 'to left, $colors$gold11, $colors$brown11',
       },
     },
     {

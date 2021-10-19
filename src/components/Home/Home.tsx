@@ -1,16 +1,17 @@
 import React from 'react';
 import { Flex } from '../Flex';
 import { Text, TextTitle, TextHead, TextSub } from '../Text';
+import { BrewButton } from '../Button';
 
 const Home = () => {
   return (
     <Flex direction='column' align='start' pad='4'>
       <TextTitle>
         Brew{' '}
-        <TextHead size='8' inline>
+        <TextHead size='8' inline color='coffee' gradient>
           Excellent
-        </TextHead>{' '}
-        Coffee
+        </TextHead>
+        <TextTitle>Coffee</TextTitle>
       </TextTitle>
       <TextHead case='initial'>What is in a cup anyway?</TextHead>
       <Text>
@@ -32,6 +33,7 @@ const Home = () => {
         faucibus quis. Quisque tempor sollicitudin libero eget
         sollicitudin.
       </Text>
+      <BrewButton>Brew</BrewButton>
     </Flex>
   );
 };

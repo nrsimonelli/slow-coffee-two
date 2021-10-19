@@ -145,18 +145,24 @@ export const Button = styled('button', {
 export const ToggleButton = styled(Button, {
   px: '$4',
   py: '$3',
-  // boxShadow: 'inset 0 0 0 1px $colors$base7',
-  // '&:hover': {
-  //   backgroundColor: '$base6',
-  //   boxShadow: 'inset 0 0 0 1px $colors$base8',
-  // },
-  // '&:focus': {
-  //   boxShadow:
-  //     'inset 0 0 0 1px $colors$base8, 0 0 0 1px $colors$base8',
-  // },
   defaultVariants: {
     shape: '2',
     size: '4',
     color: 'transparent',
   },
+});
+
+export const BrewButton = styled(Button, {
+  px: '$5',
+  py: '$3',
+  fontWeight: '$2',
+  color: '$white',
+  gradient: 'to right, $colors$primary9, $colors$accent9',
+  '&:hover': {
+    gradient: 'to right, $colors$primary10, $colors$accent10',
+  },
+  '&:active': {
+    gradient: 'to right, $colors$primary9, $colors$accent9',
+  },
+  defaultVariants: { shape: '3' },
 });
