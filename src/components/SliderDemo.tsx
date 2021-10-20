@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from '../stitches.config';
+import { Div } from './Div';
 import { Root, Track, Range, Thumb } from '@radix-ui/react-slider';
 
 const StyledSlider = styled(Root, {
@@ -8,10 +9,11 @@ const StyledSlider = styled(Root, {
   alignItems: 'center',
   userSelect: 'none',
   touchAction: 'none',
+  border: '1px solid blue',
   width: 200,
 
   '&[data-orientation="horizontal"]': {
-    height: 20,
+    height: '$5',
   },
 
   '&[data-orientation="vertical"]': {
@@ -51,18 +53,17 @@ const StyledThumb = styled(Thumb, {
 });
 
 export type Props = {
-  setting?: number;
+  defaultValue?: number;
 };
 
-const SliderDemo = ({ setting = 2 }: Props) => {
-  const [sliderValue, setSliderValue] = useState(setting);
+const SliderDemo = ({ defaultValue = 2 }: Props) => {
+  const [sliderValue, setSliderValue] = useState(defaultValue);
 
   return (
-    <form>
-      <div>{sliderValue.toPrecision(2)}</div>
+    <Div>
       <StyledSlider
         value={[sliderValue]}
-        max={10}
+        max={6}
         min={1}
         step={0.1}
         aria-label='Cups'
@@ -73,7 +74,7 @@ const SliderDemo = ({ setting = 2 }: Props) => {
         </StyledTrack>
         <StyledThumb />
       </StyledSlider>
-    </form>
+    </Div>
   );
 };
 

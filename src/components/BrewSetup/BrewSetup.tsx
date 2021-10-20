@@ -8,7 +8,14 @@ const BrewSetup = () => {
     <Flex direction='column' align='start' pad='4' border>
       <TextTitle>Brew Setup</TextTitle>
       <Text>Hello</Text>
-      <SliderDemo />
+      <Flex
+        direction='column'
+        align='center'
+        border
+        css={{ width: '$full' }}
+      >
+        <SliderDemo />
+      </Flex>
     </Flex>
   );
 };
