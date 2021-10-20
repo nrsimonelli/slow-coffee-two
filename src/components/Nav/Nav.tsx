@@ -32,10 +32,10 @@ const Nav = () => {
         css={{
           display: 'none',
           flexGrow: '1',
-          px: '$2',
+          px: '$1',
           height: '$full',
           '@bp1': { display: 'flex' },
-          '& > a': {
+          '& > .nav-link': {
             height: '$5',
             display: 'flex',
             alignItems: 'center',
@@ -45,6 +45,7 @@ const Nav = () => {
         {NAV_ROUTES.map((link, index) => (
           <NavLink
             key={index}
+            className='nav-link'
             exact
             to={link.location}
             activeStyle={navActiveStyle}

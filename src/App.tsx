@@ -8,6 +8,7 @@ import Nav from './components/Nav/Nav';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Support from './components/Support/Support';
+import BrewSetup from './components/BrewSetup/BrewSetup';
 
 const globalStyles = globalCss({
   '*': {
@@ -25,7 +26,7 @@ const globalStyles = globalCss({
     bg: '$appBg1',
     color: '$hiContrast',
   },
-  a: {
+  '.nav-link': {
     color: '$lowContrast',
     fontWeight: '$2',
     textDecoration: 'inherit',
@@ -34,7 +35,7 @@ const globalStyles = globalCss({
     py: '$2',
     borderRadius: '$2',
   },
-  'a:hover': {
+  '.nav-link:hover': {
     color: '$hiContrast',
     bg: '$base5',
   },
@@ -51,6 +52,7 @@ const App = () => {
         css={{ minHeight: 'calc(100vh - $sizes$6)' }}
       >
         <Switch>
+          <Route path='/setup' exact component={BrewSetup} />
           <Route path='/about' exact component={About} />
           <Route path='/support' exact component={Support} />
           <Route path='/' exact component={Home} />

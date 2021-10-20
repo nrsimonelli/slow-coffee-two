@@ -11,8 +11,28 @@ export const THEMES = {
   DARK_THEME: 'dark-theme',
 } as const;
 
+export const ROUTES = {
+  HOME: {
+    PATH: '/',
+    NAME: 'Home',
+  },
+  ABOUT: {
+    PATH: '/about',
+    NAME: 'About',
+  },
+  SUPPORT: {
+    PATH: '/support',
+    NAME: 'Support',
+  },
+  BREW: {
+    PATH: '/setup',
+    NAME: 'Brew',
+  },
+} as const;
+
 export const NAV_ROUTES = [
-  { title: 'Home', location: '/' },
-  { title: 'About', location: '/about' },
-  { title: 'Support', location: '/support' },
+  { title: ROUTES.HOME.NAME, location: ROUTES.HOME.PATH },
+  { title: ROUTES.ABOUT.NAME, location: ROUTES.ABOUT.PATH },
+  { title: ROUTES.SUPPORT.NAME, location: ROUTES.SUPPORT.PATH },
+  { title: ROUTES.BREW.NAME, location: ROUTES.BREW.PATH },
 ] as const;

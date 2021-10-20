@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Flex } from '../Flex';
 import { Text, TextTitle, TextHead, TextSub } from '../Text';
 import { BrewButton } from '../Button';
+import { ROUTES } from '../../constants';
 
 const Home = () => {
   return (
@@ -33,7 +35,15 @@ const Home = () => {
         faucibus quis. Quisque tempor sollicitudin libero eget
         sollicitudin.
       </Text>
-      <BrewButton>Brew</BrewButton>
+      <Flex
+        align='center'
+        justify='center'
+        css={{ width: '$full', py: '$4' }}
+      >
+        <Link to={ROUTES.BREW.PATH}>
+          <BrewButton>Brew</BrewButton>
+        </Link>
+      </Flex>
     </Flex>
   );
 };
