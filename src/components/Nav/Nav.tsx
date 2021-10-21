@@ -39,6 +39,8 @@ const Nav = () => {
             height: '$5',
             display: 'flex',
             alignItems: 'center',
+            cursor: 'auto',
+            userSelect: 'none',
           },
         }}
       >

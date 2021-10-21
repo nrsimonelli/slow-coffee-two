@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Flex } from '../Flex';
 import { Text, TextTitle, TextHead, TextSub } from '../Text';
 import { BrewButton } from '../Button';
 import { ROUTES } from '../../constants';
 
 const Home = () => {
+  let history = useHistory();
+
   return (
     <Flex direction='column' align='start' pad='4'>
       <TextTitle>
@@ -40,9 +42,9 @@ const Home = () => {
         justify='center'
         css={{ width: '$full', py: '$4' }}
       >
-        <Link to={ROUTES.BREW.PATH}>
-          <BrewButton>Brew</BrewButton>
-        </Link>
+        <BrewButton onClick={() => history.push(ROUTES.BREW.PATH)}>
+          {ROUTES.BREW.NAME}
+        </BrewButton>
       </Flex>
     </Flex>
   );

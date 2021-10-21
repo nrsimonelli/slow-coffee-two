@@ -39,6 +39,10 @@ const globalStyles = globalCss({
     color: '$hiContrast',
     bg: '$base5',
   },
+  a: {
+    color: 'inherit',
+    textDecoration: 'inherit',
+  },
 });
 
 const App = () => {
