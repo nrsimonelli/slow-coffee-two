@@ -62,7 +62,7 @@ const SliderDemo = ({ volume, onSliderChange }: Props) => {
       <StyledSlider
         value={[volume]}
         max={6}
-        min={1}
+        min={0}
         step={0.1}
         aria-label='Volume'
         onValueChange={(e) => onSliderChange(e[0])}
