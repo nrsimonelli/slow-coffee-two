@@ -2,13 +2,14 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { globalCss } from './stitches.config';
-import { Container } from './components/Container';
+// import { Container } from './components/Container';
 
 import Nav from './components/Nav/Nav';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Support from './components/Support/Support';
 import BrewSetup from './components/BrewSetup/BrewSetup';
+import { Flex } from './components/Flex';
 
 const globalStyles = globalCss({
   '*': {
@@ -51,10 +52,7 @@ const App = () => {
   return (
     <>
       <Nav />
-      <Container
-        responsive
-        css={{ minHeight: 'calc(100vh - $sizes$6)' }}
-      >
+      <Flex css={{ minHeight: 'calc(100vh - $sizes$6)' }}>
         <Switch>
           <Route path='/setup' exact component={BrewSetup} />
           <Route path='/about' exact component={About} />
@@ -62,7 +60,7 @@ const App = () => {
           <Route path='/' exact component={Home} />
           <Redirect from='*' to='/' />
         </Switch>
-      </Container>
+      </Flex>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styled } from '../stitches.config';
 import { Div } from './Div';
 import { Root, Track, Range, Thumb } from '@radix-ui/react-slider';
@@ -9,7 +9,6 @@ const StyledSlider = styled(Root, {
   alignItems: 'center',
   userSelect: 'none',
   touchAction: 'none',
-  border: '1px solid blue',
   width: 200,
 
   '&[data-orientation="horizontal"]': {
@@ -53,21 +52,20 @@ const StyledThumb = styled(Thumb, {
 });
 
 export type Props = {
-  defaultValue?: number;
+  volume: number;
+  onSliderChange: (c: number) => void;
 };
 
-const SliderDemo = ({ defaultValue = 2 }: Props) => {
-  const [sliderValue, setSliderValue] = useState(defaultValue);
-
+const SliderDemo = ({ volume, onSliderChange }: Props) => {
   return (
-    <Div>
+    <Div css={{ mx: 'auto', my: '$4' }}>
       <StyledSlider
-        value={[sliderValue]}
+        value={[volume]}
         max={6}
         min={1}
         step={0.1}
-        aria-label='Cups'
-        onValueChange={(e) => setSliderValue(e[0])}
+        aria-label='Volume'
+        onValueChange={(e) => onSliderChange(e[0])}
       >
         <StyledTrack>
           <StyledRange />

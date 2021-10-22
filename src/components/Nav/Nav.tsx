@@ -34,7 +34,7 @@ const Nav = () => {
           flexGrow: '1',
           px: '$1',
           height: '$full',
-          '@bp1': { display: 'flex' },
+          '@bp2': { display: 'flex' },
           '& > .nav-link': {
             height: '$5',
             display: 'flex',
