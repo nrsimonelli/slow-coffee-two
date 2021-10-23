@@ -3,7 +3,9 @@ import { Button } from '../Button';
 import { Container } from '../Container';
 import { Flex } from '../Flex';
 import SliderDemo from '../SliderDemo';
+import { Div } from '../Div';
 import { TextTitle, Text, TextSub } from '../Text';
+import { MdCheck } from 'react-icons/md';
 
 const BrewSetup = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -15,7 +17,7 @@ const BrewSetup = () => {
   const shouldDisableNext = sliderValue !== 0 ? false : true;
 
   const handleStepChange = () => {
-    if (currentStep === 2) {
+    if (currentStep === 7) {
       setCurrentStep(0);
     } else {
       setCurrentStep(currentStep + 1);
@@ -25,29 +27,78 @@ const BrewSetup = () => {
   const baseStyle = {
     pl: '$5',
     py: '$3',
-    color: '$primary11',
+    color: '$sideNav11',
     m: 0,
     '&:hover': {
       cursor: 'default',
       fontWeight: '$2',
-      bg: '$primary4',
+      bg: '$sideNav4',
     },
   };
+
   const activeStyle = {
     pl: '$5',
     py: '$3',
-    color: '$primary11',
+    color: '$sideNav11',
     m: 0,
     fontWeight: '$2',
-    bg: '$primary5',
+    bg: '$sideNav5',
     '&:hover': {
       cursor: 'default',
     },
   };
-  const completeStyle = {
-    pl: '$4',
-    color: '$primary11',
-    '&:hover': { cursor: 'default', fontWeight: '$2' },
+
+  const CheckIcon = () => {
+    return (
+      <Div
+        css={{
+          display: 'inline',
+          ml: '$4',
+          fontSize: '$4',
+          lineHeight: 1,
+          verticalAlign: 'middle',
+        }}
+      >
+        <MdCheck />
+      </Div>
+    );
+  };
+
+  const sideNavText = (position: number, label: string) => {
+    if (currentStep === position) {
+      return (
+        <Text
+          onClick={() => {
+            setCurrentStep(position);
+          }}
+          css={activeStyle}
+        >
+          {label}
+        </Text>
+      );
+    }
+    if (currentStep > position) {
+      return (
+        <Text
+          onClick={() => {
+            setCurrentStep(position);
+          }}
+          css={baseStyle}
+        >
+          {label} <CheckIcon />
+        </Text>
+      );
+    }
+    return (
+      <Text
+        onClick={() => {
+          setCurrentStep(position);
+        }}
+        css={baseStyle}
+      >
+        {label}
+      </Text>
+    );
   };
 
   return (
@@ -59,7 +110,7 @@ const BrewSetup = () => {
           p: '$1',
           pt: '$4',
           height: '$full',
-          bg: '$primary3',
+          bg: '$sideNav3',
           display: 'none',
           '@bp2': { display: 'flex' },
         }}
@@ -70,28 +121,29 @@ const BrewSetup = () => {
               pb: '$3',
               pl: '$4',
               mt: '$5',
-              color: '$primary11',
+              color: '$sideNav11',
             }}
           >
             Preparation
           </TextSub>
-          <Text css={baseStyle}>Volume</Text>
-          <Text css={baseStyle}>Materials</Text>
-          <Text css={baseStyle}>Setup</Text>
+          {sideNavText(0, 'Volume')}
+          {sideNavText(1, 'Materials')}
+          {sideNavText(2, 'Setup')}
+
           <TextSub
             css={{
               mt: '$1',
               py: '$3',
               pl: '$4',
-              color: '$primary11',
+              color: '$sideNav11',
             }}
           >
             Brew
           </TextSub>
-          <Text css={baseStyle}>Bloom</Text>
-          <Text css={activeStyle}>First Pour</Text>
-          <Text css={baseStyle}>Second Pour</Text>
-          <Text css={baseStyle}>Final Pour</Text>
+          {sideNavText(3, 'Bloom')}
+          {sideNavText(4, 'First Pour')}
+          {sideNavText(5, 'Second Pour')}
+          {sideNavText(6, 'Final Pour')}
         </Flex>
       </Container>
       <Flex

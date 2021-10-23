@@ -123,6 +123,12 @@ export const { styled, config, theme, createTheme, globalCss } =
         accent10: '$sky10',
         accent11: '$sky11',
         accent12: '$sky12',
+
+        sideNav3: '$primary3',
+        sideNav4: '$primary4',
+        sideNav5: '$primary5',
+
+        sideNav11: '$primary11',
       },
       fonts: {
         body: 'Avenir Next, system-ui, sans-serif',
@@ -358,5 +364,10 @@ export const darkTheme = createTheme(THEMES.DARK_THEME, {
     accent10: '$sky10',
     accent11: '$sky11',
     accent12: '$sky12',
+
+    sideNav3: '$base3',
+    sideNav4: '$base4',
+    sideNav5: '$base5',
+    sideNav11: '$base12',
   },
 });
