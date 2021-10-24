@@ -8,8 +8,8 @@ import Nav from './components/Nav/Nav';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Support from './components/Support/Support';
-import BrewSetup from './components/BrewSetup/BrewSetup';
 import { Flex } from './components/Flex';
+import BrewPage from './components/BrewPage/BrewPage';
 
 const globalStyles = globalCss({
   '*': {
@@ -54,7 +54,7 @@ const App = () => {
       <Nav />
       <Flex css={{ minHeight: 'calc(100vh - $sizes$6)' }}>
         <Switch>
-          <Route path='/setup' exact component={BrewSetup} />
+          <Route path='/setup' exact component={BrewPage} />
           <Route path='/about' exact component={About} />
           <Route path='/support' exact component={Support} />
           <Route path='/' exact component={Home} />

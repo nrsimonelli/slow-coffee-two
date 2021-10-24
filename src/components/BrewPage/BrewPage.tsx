@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { Button } from '../Button';
 import { Container } from '../Container';
 import { Flex } from '../Flex';
-import SliderDemo from '../SliderDemo';
 import { Div } from '../Div';
-import { TextTitle, Text, TextSub } from '../Text';
+import { Text, TextSub } from '../Text';
 import { MdCheck } from 'react-icons/md';
+import Volume from './Volume';
+import Materials from './Materials';
+import Setup from './Setup';
+import Bloom from './Bloom';
 
-const BrewSetup = () => {
+const BrewPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [sliderValue, setSliderValue] = useState(2);
 
@@ -21,6 +24,33 @@ const BrewSetup = () => {
       setCurrentStep(0);
     } else {
       setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const renderBrewStep = () => {
+    switch (currentStep) {
+      case 0:
+        return (
+          <Volume value={sliderValue} setValue={setSliderValue} />
+        );
+      case 1:
+        return <Materials coffee={coffee} water={water} />;
+      case 2:
+        return <Setup value={sliderValue} />;
+      case 3:
+        return <Bloom />;
+      case 4:
+        return (
+          <Volume value={sliderValue} setValue={setSliderValue} />
+        );
+      case 5:
+        return (
+          <Volume value={sliderValue} setValue={setSliderValue} />
+        );
+      default:
+        return (
+          <Volume value={sliderValue} setValue={setSliderValue} />
+        );
     }
   };
 
@@ -144,75 +174,19 @@ const BrewSetup = () => {
           {sideNavText(4, 'First Pour')}
           {sideNavText(5, 'Second Pour')}
           {sideNavText(6, 'Final Pour')}
+          <Button
+            color='primary'
+            disabled={shouldDisableNext}
+            onClick={handleStepChange}
+            css={{ px: '$4' }}
+          >
+            Next
+          </Button>
         </Flex>
       </Container>
-      <Flex
-        direction='column'
-        align='center'
-        pad='4'
-        css={{ flexGrow: '1' }}
-      >
-        {currentStep === 0 && (
-          <>
-            <TextTitle>Brew Setup</TextTitle>
-            <Text css={{ mx: 'auto' }}>
-              How many cups will you be making?
-            </Text>
-
-            <SliderDemo
-              volume={sliderValue}
-              onSliderChange={setSliderValue}
-            />
-            <TextSub css={{ mx: 'auto' }}>
-              {sliderValue.toPrecision(2)}
-            </TextSub>
-          </>
-        )}
-        {currentStep === 1 && (
-          <>
-            <TextTitle>STEP 2 </TextTitle>
-            <Text css={{ mx: 'auto' }}>
-              Heat at least {water}ml of water
-            </Text>
-            <Text css={{ mx: 'auto' }}>
-              Grind {coffee}g of coffee
-            </Text>
-
-            <SliderDemo
-              volume={sliderValue}
-              onSliderChange={setSliderValue}
-            />
-            <TextSub css={{ mx: 'auto' }}>
-              {sliderValue.toPrecision(2)}
-            </TextSub>
-          </>
-        )}
-        {currentStep === 2 && (
-          <>
-            <TextTitle>STEP 3</TextTitle>
-            <Text css={{ mx: 'auto' }}>
-              How many cups will you be making?
-            </Text>
-
-            <SliderDemo
-              volume={sliderValue}
-              onSliderChange={setSliderValue}
-            />
-            <TextSub css={{ mx: 'auto' }}>
-              {sliderValue.toPrecision(2)}
-            </TextSub>
-          </>
-        )}
-        <Button
-          color='primary'
-          disabled={shouldDisableNext}
-          onClick={handleStepChange}
-        >
-          change step
-        </Button>
-      </Flex>
+      {renderBrewStep()}
     </Flex>
   );
 };
 
-export default BrewSetup;
+export default BrewPage;
