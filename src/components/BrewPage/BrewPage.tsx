@@ -132,7 +132,12 @@ const BrewPage = () => {
   };
 
   return (
-    <Flex direction='row' align='start' css={{ width: '$full' }}>
+    <Flex
+      direction='row'
+      align='start'
+      wrap='wrap'
+      css={{ width: '$full' }}
+    >
       <Container
         css={{
           minWidth: 180,

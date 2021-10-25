@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex } from '../Flex';
-import { Text, TextTitle } from '../Text';
+import { Text, TextTitle, TextSub } from '../Text';
 
 type Props = {
   coffee: number;
@@ -15,11 +15,13 @@ const Materials = ({ coffee, water }: Props) => {
       pad='4'
       css={{ flexGrow: '1' }}
     >
-      <TextTitle>Coffee & Water</TextTitle>
+      <TextTitle>Preparation</TextTitle>
       <Text css={{ mx: 'auto' }}>
-        Heat at least {water}ml of water
+        Grind {coffee}g of <TextSub inline>coffee</TextSub>
       </Text>
-      <Text css={{ mx: 'auto' }}>Grind {coffee}g of coffee</Text>
+      <Text css={{ mx: 'auto' }}>
+        Heat at least {water}ml of <TextSub inline>water</TextSub>
+      </Text>
     </Flex>
   );
 };
