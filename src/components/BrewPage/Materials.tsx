@@ -17,10 +17,18 @@ const Materials = ({ coffee, water }: Props) => {
     >
       <TextTitle>Preparation</TextTitle>
       <Text css={{ mx: 'auto' }}>
-        Grind {coffee}g of <TextSub inline>coffee</TextSub>
+        Grind{' '}
+        <Text color='hiContrast' inline>
+          {coffee}g
+        </Text>{' '}
+        of coffee
       </Text>
       <Text css={{ mx: 'auto' }}>
-        Heat at least {water}ml of <TextSub inline>water</TextSub>
+        Heat at least{' '}
+        <Text color='hiContrast' inline>
+          {water}ml
+        </Text>{' '}
+        of water
       </Text>
     </Flex>
   );
