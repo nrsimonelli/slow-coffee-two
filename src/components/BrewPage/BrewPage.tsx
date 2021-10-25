@@ -17,7 +17,7 @@ const BrewPage = () => {
   const coffee = Math.ceil(sliderValue * 15);
   const water = Math.ceil((sliderValue * 225) / 50) * 50 + 100;
 
-  const shouldDisableNext = sliderValue !== 0 ? false : true;
+  // const shouldDisableNext = sliderValue !== 0 ? false : true;
 
   const handleStepChange = () => {
     if (currentStep === 7) {
@@ -31,7 +31,11 @@ const BrewPage = () => {
     switch (currentStep) {
       case 0:
         return (
-          <Volume value={sliderValue} setValue={setSliderValue} />
+          <Volume
+            value={sliderValue}
+            setValue={setSliderValue}
+            handleNext={handleStepChange}
+          />
         );
       case 1:
         return <Materials coffee={coffee} water={water} />;
@@ -41,15 +45,27 @@ const BrewPage = () => {
         return <Bloom />;
       case 4:
         return (
-          <Volume value={sliderValue} setValue={setSliderValue} />
+          <Volume
+            value={sliderValue}
+            setValue={setSliderValue}
+            handleNext={handleStepChange}
+          />
         );
       case 5:
         return (
-          <Volume value={sliderValue} setValue={setSliderValue} />
+          <Volume
+            value={sliderValue}
+            setValue={setSliderValue}
+            handleNext={handleStepChange}
+          />
         );
       default:
         return (
-          <Volume value={sliderValue} setValue={setSliderValue} />
+          <Volume
+            value={sliderValue}
+            setValue={setSliderValue}
+            handleNext={handleStepChange}
+          />
         );
     }
   };
@@ -179,14 +195,14 @@ const BrewPage = () => {
           {sideNavText(4, 'First Pour')}
           {sideNavText(5, 'Second Pour')}
           {sideNavText(6, 'Final Pour')}
-          <Button
+          {/* <Button
             color='primary'
             disabled={shouldDisableNext}
             onClick={handleStepChange}
             css={{ px: '$4' }}
           >
             Next
-          </Button>
+          </Button> */}
         </Flex>
       </Container>
       {renderBrewStep()}

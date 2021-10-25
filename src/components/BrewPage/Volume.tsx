@@ -7,9 +7,12 @@ import SliderDemo from '../SliderDemo';
 type Props = {
   value: number;
   setValue: Dispatch<SetStateAction<number>>;
+  handleNext: () => void;
 };
 
-const Volume = ({ value, setValue }: Props) => {
+const Volume = ({ value, setValue, handleNext }: Props) => {
+  const shouldDisableNext = value === 0 ? true : false;
+
   return (
     <Flex
       border
@@ -28,8 +31,8 @@ const Volume = ({ value, setValue }: Props) => {
 
       <Button
         color='primary'
-        // disabled={shouldDisableNext}
-        // onClick={handleStepChange}
+        disabled={shouldDisableNext}
+        onClick={handleNext}
         css={{ px: '$4', position: 'absolute', bottom: '$8' }}
       >
         Next
