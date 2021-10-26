@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex } from '../Flex';
-import { Text, TextSub, TextTitle } from '../Text';
+import { Text, TextTitle } from '../Text';
 import { Button } from '../Button';
 
 type Props = {

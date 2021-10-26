@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 import { Flex } from '../Flex';
 import { Text, TextSub, TextTitle } from '../Text';
 import { Button } from '../Button';
-import SliderDemo from '../SliderDemo';
+import Slider from '../Slider';
 
 type Props = {
   value: number;
@@ -27,12 +27,12 @@ const Volume = ({
       pad='4'
       css={{ flexGrow: '1', height: '100%' }}
     >
-      <TextTitle>Brew Setup</TextTitle>
+      <TextTitle>Volume</TextTitle>
       <Text css={{ mx: 'auto' }}>
         How many cups will you be making?
       </Text>
 
-      <SliderDemo volume={value} onSliderChange={setValue} />
+      <Slider volume={value} onSliderChange={setValue} />
       <TextSub css={{ mx: 'auto' }}>{value.toPrecision(2)}</TextSub>
 
       <Button

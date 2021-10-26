@@ -23,7 +23,7 @@ const Materials = ({
       pad='4'
       css={{ flexGrow: '1' }}
     >
-      <TextTitle>Preparation</TextTitle>
+      <TextTitle>Materials</TextTitle>
       <Text css={{ mx: 'auto' }}>
         Grind{' '}
         <Text color='hiContrast' inline>

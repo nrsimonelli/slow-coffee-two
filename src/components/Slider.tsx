@@ -56,7 +56,7 @@ export type Props = {
   onSliderChange: (c: number) => void;
 };
 
-const SliderDemo = ({ volume, onSliderChange }: Props) => {
+const Slider = ({ volume, onSliderChange }: Props) => {
   return (
     <Div css={{ mx: 'auto', my: '$4' }}>
       <StyledSlider
@@ -76,4 +76,4 @@ const SliderDemo = ({ volume, onSliderChange }: Props) => {
   );
 };
 
-export default SliderDemo;
+export default Slider;

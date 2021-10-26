@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Button } from '../Button';
 import { Container } from '../Container';
 import { Flex } from '../Flex';
 import { Div } from '../Div';
@@ -51,7 +50,13 @@ const BrewPage = () => {
           <Setup handleNext={handleStepChange} buttonText={'Done'} />
         );
       case 3:
-        return <Bloom />;
+        return (
+          <Bloom
+            value={coffee}
+            handleBrewTime={() => {}}
+            buttonText={'Go'}
+          />
+        );
       case 4:
         return (
           <Volume
