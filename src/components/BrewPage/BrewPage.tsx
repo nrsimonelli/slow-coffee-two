@@ -38,9 +38,18 @@ const BrewPage = () => {
           />
         );
       case 1:
-        return <Materials coffee={coffee} water={water} />;
+        return (
+          <Materials
+            coffee={coffee}
+            water={water}
+            handleNext={handleStepChange}
+            buttonText={'Ready'}
+          />
+        );
       case 2:
-        return <Setup value={sliderValue} />;
+        return (
+          <Setup handleNext={handleStepChange} buttonText={'Done'} />
+        );
       case 3:
         return <Bloom />;
       case 4:

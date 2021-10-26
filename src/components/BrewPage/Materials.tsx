@@ -1,13 +1,21 @@
 import React from 'react';
 import { Flex } from '../Flex';
-import { Text, TextTitle, TextSub } from '../Text';
+import { Text, TextTitle } from '../Text';
+import { Button } from '../Button';
 
 type Props = {
   coffee: number;
   water: number;
+  handleNext: () => void;
+  buttonText?: string;
 };
 
-const Materials = ({ coffee, water }: Props) => {
+const Materials = ({
+  coffee,
+  water,
+  handleNext,
+  buttonText,
+}: Props) => {
   return (
     <Flex
       direction='column'
@@ -30,6 +38,13 @@ const Materials = ({ coffee, water }: Props) => {
         </Text>{' '}
         of water
       </Text>
+      <Button
+        color='primary'
+        onClick={handleNext}
+        css={{ px: '$4', position: 'absolute', bottom: '$8' }}
+      >
+        {buttonText ? buttonText : 'Next'}
+      </Button>
     </Flex>
   );
 };

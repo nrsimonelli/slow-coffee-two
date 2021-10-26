@@ -8,9 +8,15 @@ type Props = {
   value: number;
   setValue: Dispatch<SetStateAction<number>>;
   handleNext: () => void;
+  buttonText?: string;
 };
 
-const Volume = ({ value, setValue, handleNext }: Props) => {
+const Volume = ({
+  value,
+  setValue,
+  handleNext,
+  buttonText,
+}: Props) => {
   const shouldDisableNext = value === 0 ? true : false;
 
   return (
@@ -35,7 +41,7 @@ const Volume = ({ value, setValue, handleNext }: Props) => {
         onClick={handleNext}
         css={{ px: '$4', position: 'absolute', bottom: '$8' }}
       >
-        Next
+        {buttonText ? buttonText : 'Next'}
       </Button>
     </Flex>
   );

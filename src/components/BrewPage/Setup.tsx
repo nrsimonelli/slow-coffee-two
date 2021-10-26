@@ -1,12 +1,14 @@
 import React from 'react';
 import { Flex } from '../Flex';
 import { Text, TextSub, TextTitle } from '../Text';
+import { Button } from '../Button';
 
 type Props = {
-  value: number;
+  handleNext: () => void;
+  buttonText?: string;
 };
 
-const Setup = ({ value }: Props) => {
+const Setup = ({ handleNext, buttonText }: Props) => {
   return (
     <Flex
       direction='column'
@@ -14,12 +16,28 @@ const Setup = ({ value }: Props) => {
       pad='4'
       css={{ flexGrow: '1' }}
     >
-      <TextTitle>Brew Setup</TextTitle>
+      <TextTitle>Setup</TextTitle>
       <Text css={{ mx: 'auto' }}>
-        How many cups will you be making?
+        Wet the{' '}
+        <Text color='hiContrast' inline>
+          filter,
+        </Text>{' '}
+        set the{' '}
+        <Text color='hiContrast' inline>
+          grounds,
+        </Text>{' '}
+        zero the{' '}
+        <Text color='hiContrast' inline>
+          scale
+        </Text>
       </Text>
-
-      <TextSub css={{ mx: 'auto' }}>{value.toPrecision(2)}</TextSub>
+      <Button
+        color='primary'
+        onClick={handleNext}
+        css={{ px: '$4', position: 'absolute', bottom: '$8' }}
+      >
+        {buttonText ? buttonText : 'Next'}
+      </Button>
     </Flex>
   );
 };
