@@ -4,12 +4,12 @@ import { Text, TextTitle, TextSub } from '../Text';
 import { Button } from '../Button';
 
 type Props = {
-  value: number;
-  handleBrewTime: () => void;
+  target: number;
+  handleNext: () => void;
   buttonText?: string;
 };
 
-const Bloom = ({ value, handleBrewTime, buttonText }: Props) => {
+const Bloom = ({ target, handleNext, buttonText }: Props) => {
   return (
     <Flex
       direction='column'
@@ -19,16 +19,17 @@ const Bloom = ({ value, handleBrewTime, buttonText }: Props) => {
     >
       <TextTitle>Bloom</TextTitle>
       <Text css={{ mx: 'auto', maxWidth: 400, wordWrap: 'normal' }}>
-        For the best bloom, try a slow circular pour from the center
-        of the grounds. Be careful to avoid the edges of the filter.
+        For the best bloom try to wet all of the grounds without
+        pouring water down the sides of the filter.
       </Text>
-      <TextSub>Target: {value * 2}g</TextSub>
+      <TextSub>Target: {target}g</TextSub>
+
       <Button
         color='primary'
-        onClick={handleBrewTime}
+        onClick={handleNext}
         css={{ px: '$4', position: 'absolute', bottom: '$8' }}
       >
-        {buttonText ? buttonText : 'Next'}
+        {buttonText ? buttonText : 'Go!'}
       </Button>
     </Flex>
   );

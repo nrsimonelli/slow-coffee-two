@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Flex } from '../Flex';
 import { Text, TextTitle, TextSub } from '../Text';
 import { Button } from '../Button';
-import ProgressBar from '../ProgressBar';
 
 type Props = {
   target: number;
@@ -10,24 +9,6 @@ type Props = {
 };
 
 const FirstPour = ({ target, nextStep }: Props) => {
-  const [progress, setProgress] = useState(0);
-  const [time, setTime] = useState(200);
-  const [shouldReset, setShouldReset] = useState(false);
-
-  const timerTest = setTimeout(() => console.log('hello'), 3000);
-
-  useEffect(() => {
-    setProgress(100);
-    setTime(45000);
-  }, [shouldReset]);
-
-  const resetTimer = () => {
-    setProgress(0);
-    setTime(0);
-    clearTimeout(timerTest);
-    setShouldReset(!shouldReset);
-  };
-
   return (
     <Flex
       direction='column'
@@ -40,11 +21,10 @@ const FirstPour = ({ target, nextStep }: Props) => {
         Some tip about Coffee.
       </Text>
       <TextSub>Target: {target}g</TextSub>
-      <ProgressBar timeValue={time} barValue={progress} />
 
       <Button
         color='primary'
-        onClick={resetTimer}
+        onClick={() => console.log('restart clicked')}
         css={{ px: '$4', position: 'absolute', bottom: '$8' }}
       >
         Restart

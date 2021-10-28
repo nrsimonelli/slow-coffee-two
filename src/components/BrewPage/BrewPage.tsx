@@ -8,6 +8,8 @@ import Volume from './Volume';
 import Materials from './Materials';
 import Setup from './Setup';
 import Bloom from './Bloom';
+import FirstPour from './FirstPour';
+import SecondPour from './SecondPour';
 
 const BrewPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -15,6 +17,13 @@ const BrewPage = () => {
 
   const coffee = Math.ceil(sliderValue * 15);
   const water = Math.ceil((sliderValue * 225) / 50) * 50 + 100;
+
+  const TARGETS = {
+    BLOOM: coffee * 2,
+    FIRST: coffee * 6,
+    SECOND: coffee * 11,
+    FINAL: coffee * 15,
+  };
 
   // const shouldDisableNext = sliderValue !== 0 ? false : true;
 
@@ -52,25 +61,23 @@ const BrewPage = () => {
       case 3:
         return (
           <Bloom
-            value={coffee}
-            handleBrewTime={() => {}}
-            buttonText={'Go'}
+            target={TARGETS.BLOOM}
+            handleNext={handleStepChange}
+            buttonText={'Go!'}
           />
         );
       case 4:
         return (
-          <Volume
-            value={sliderValue}
-            setValue={setSliderValue}
-            handleNext={handleStepChange}
+          <FirstPour
+            target={TARGETS.FIRST}
+            nextStep={handleStepChange}
           />
         );
       case 5:
         return (
-          <Volume
-            value={sliderValue}
-            setValue={setSliderValue}
-            handleNext={handleStepChange}
+          <SecondPour
+            target={TARGETS.SECOND}
+            handleBrewTime={handleStepChange}
           />
         );
       default:
