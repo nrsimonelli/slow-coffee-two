@@ -11,6 +11,7 @@ import Bloom from './Bloom';
 import FirstPour from './FirstPour';
 import SecondPour from './SecondPour';
 import FinalPour from './FinalPour';
+import ProgressBar from '../ProgressBar';
 
 const BrewPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -187,7 +188,10 @@ const BrewPage = () => {
           '@bp2': { display: 'flex' },
         }}
       >
-        <Flex direction='column' css={{ width: '$full' }}>
+        <Flex
+          direction='column'
+          css={{ width: '$full', flexShrink: 0 }}
+        >
           <TextSub
             css={{
               pb: '$3',
@@ -216,17 +220,24 @@ const BrewPage = () => {
           {sideNavText(4, 'First Pour')}
           {sideNavText(5, 'Second Pour')}
           {sideNavText(6, 'Final Pour')}
-          {/* <Button
-            color='primary'
-            disabled={shouldDisableNext}
-            onClick={handleStepChange}
-            css={{ px: '$4' }}
-          >
-            Next
-          </Button> */}
         </Flex>
       </Container>
-      {renderBrewStep()}
+      <Flex
+        direction='column'
+        border
+        css={{ flexGrow: '1', height: '$full' }}
+      >
+        {renderBrewStep()}
+        <Flex
+          direction='column'
+          align='center'
+          justify='center'
+          border
+          css={{ height: '50%' }}
+        >
+          <ProgressBar barValue={10} timeValue={0} />
+        </Flex>
+      </Flex>
     </Flex>
   );
 };

@@ -14,7 +14,7 @@ const Setup = ({ handleNext, buttonText }: Props) => {
       direction='column'
       align='center'
       pad='4'
-      css={{ flexGrow: '1' }}
+      css={{ height: '50%' }}
     >
       <TextTitle>Setup</TextTitle>
       <Text css={{ mx: 'auto' }}>
@@ -34,7 +34,7 @@ const Setup = ({ handleNext, buttonText }: Props) => {
       <Button
         color='primary'
         onClick={handleNext}
-        css={{ px: '$4', position: 'absolute', bottom: '$8' }}
+        css={{ px: '$4', position: 'absolute', bottom: '$6' }}
       >
         {buttonText ? buttonText : 'Next'}
       </Button>
