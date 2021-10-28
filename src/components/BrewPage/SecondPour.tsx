@@ -5,11 +5,11 @@ import { Button } from '../Button';
 
 type Props = {
   target: number;
-  handleBrewTime: () => void;
+  handleNext: () => void;
   buttonText?: string;
 };
 
-const Bloom = ({ target, handleBrewTime, buttonText }: Props) => {
+const Bloom = ({ target, handleNext, buttonText }: Props) => {
   return (
     <Flex
       direction='column'
@@ -25,7 +25,7 @@ const Bloom = ({ target, handleBrewTime, buttonText }: Props) => {
       <TextSub>Target: {target}g</TextSub>
       <Button
         color='primary'
-        onClick={handleBrewTime}
+        onClick={handleNext}
         css={{ px: '$4', position: 'absolute', bottom: '$8' }}
       >
         {buttonText ? buttonText : 'Next'}

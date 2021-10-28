@@ -10,6 +10,7 @@ import Setup from './Setup';
 import Bloom from './Bloom';
 import FirstPour from './FirstPour';
 import SecondPour from './SecondPour';
+import FinalPour from './FinalPour';
 
 const BrewPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -70,21 +71,20 @@ const BrewPage = () => {
         return (
           <FirstPour
             target={TARGETS.FIRST}
-            nextStep={handleStepChange}
+            handleNext={handleStepChange}
           />
         );
       case 5:
         return (
           <SecondPour
             target={TARGETS.SECOND}
-            handleBrewTime={handleStepChange}
+            handleNext={handleStepChange}
           />
         );
       default:
         return (
-          <Volume
-            value={sliderValue}
-            setValue={setSliderValue}
+          <FinalPour
+            target={TARGETS.FINAL}
             handleNext={handleStepChange}
           />
         );

@@ -5,10 +5,10 @@ import { Button } from '../Button';
 
 type Props = {
   target: number;
-  nextStep: () => void;
+  handleNext: () => void;
 };
 
-const FirstPour = ({ target, nextStep }: Props) => {
+const FirstPour = ({ target, handleNext }: Props) => {
   return (
     <Flex
       direction='column'
