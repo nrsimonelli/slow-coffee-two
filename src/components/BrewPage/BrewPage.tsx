@@ -12,10 +12,13 @@ import FirstPour from './FirstPour';
 import SecondPour from './SecondPour';
 import FinalPour from './FinalPour';
 import ProgressBar from '../ProgressBar';
+import { Button } from '../Button';
 
 const BrewPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [sliderValue, setSliderValue] = useState(2);
+  const [progressBarValue, setProgressBarValue] = useState(10);
+  const [progressTimeValue, setProgressTimeValue] = useState(1000);
 
   const coffee = Math.ceil(sliderValue * 15);
   const water = Math.ceil((sliderValue * 225) / 50) * 50 + 100;
@@ -27,7 +30,15 @@ const BrewPage = () => {
     FINAL: coffee * 15,
   };
 
-  // const shouldDisableNext = sliderValue !== 0 ? false : true;
+  const shouldDisableNext = sliderValue !== 0 ? false : true;
+
+  const moveBarValue = () => {
+    if (progressBarValue < 100) {
+      setProgressBarValue(progressBarValue + 10);
+    } else {
+      setProgressBarValue(0);
+    }
+  };
 
   const handleStepChange = () => {
     if (currentStep === 7) {
@@ -41,54 +52,20 @@ const BrewPage = () => {
     switch (currentStep) {
       case 0:
         return (
-          <Volume
-            value={sliderValue}
-            setValue={setSliderValue}
-            handleNext={handleStepChange}
-          />
+          <Volume value={sliderValue} setValue={setSliderValue} />
         );
       case 1:
-        return (
-          <Materials
-            coffee={coffee}
-            water={water}
-            handleNext={handleStepChange}
-            buttonText={'Ready'}
-          />
-        );
+        return <Materials coffee={coffee} water={water} />;
       case 2:
-        return (
-          <Setup handleNext={handleStepChange} buttonText={'Done'} />
-        );
+        return <Setup />;
       case 3:
-        return (
-          <Bloom
-            target={TARGETS.BLOOM}
-            handleNext={handleStepChange}
-            buttonText={'Go!'}
-          />
-        );
+        return <Bloom target={TARGETS.BLOOM} />;
       case 4:
-        return (
-          <FirstPour
-            target={TARGETS.FIRST}
-            handleNext={handleStepChange}
-          />
-        );
+        return <FirstPour target={TARGETS.FIRST} />;
       case 5:
-        return (
-          <SecondPour
-            target={TARGETS.SECOND}
-            handleNext={handleStepChange}
-          />
-        );
+        return <SecondPour target={TARGETS.SECOND} />;
       default:
-        return (
-          <FinalPour
-            target={TARGETS.FINAL}
-            handleNext={handleStepChange}
-          />
-        );
+        return <FinalPour target={TARGETS.FINAL} />;
     }
   };
 
@@ -235,7 +212,25 @@ const BrewPage = () => {
           border
           css={{ height: '50%' }}
         >
-          <ProgressBar barValue={10} timeValue={0} />
+          <ProgressBar
+            barValue={progressBarValue}
+            timeValue={progressTimeValue}
+          />
+          <Button
+            color='primary'
+            disabled={shouldDisableNext}
+            onClick={handleStepChange}
+            css={{ px: '$4', mt: '$5' }}
+          >
+            Next
+          </Button>
+          <Button
+            color='primary'
+            onClick={moveBarValue}
+            css={{ px: '$4', mt: '$5' }}
+          >
+            Test
+          </Button>
         </Flex>
       </Flex>
     </Flex>

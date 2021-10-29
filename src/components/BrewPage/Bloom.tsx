@@ -1,15 +1,12 @@
 import React from 'react';
 import { Flex } from '../Flex';
 import { Text, TextTitle, TextSub } from '../Text';
-import { Button } from '../Button';
 
 type Props = {
   target: number;
-  handleNext: () => void;
-  buttonText?: string;
 };
 
-const Bloom = ({ target, handleNext, buttonText }: Props) => {
+const Bloom = ({ target }: Props) => {
   return (
     <Flex
       direction='column'
@@ -23,14 +20,6 @@ const Bloom = ({ target, handleNext, buttonText }: Props) => {
         pouring water down the sides of the filter.
       </Text>
       <TextSub>Target: {target}g</TextSub>
-
-      <Button
-        color='primary'
-        onClick={handleNext}
-        css={{ px: '$4', position: 'absolute', bottom: '$6' }}
-      >
-        {buttonText ? buttonText : 'Go!'}
-      </Button>
     </Flex>
   );
 };

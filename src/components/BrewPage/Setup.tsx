@@ -1,14 +1,8 @@
 import React from 'react';
 import { Flex } from '../Flex';
 import { Text, TextTitle } from '../Text';
-import { Button } from '../Button';
 
-type Props = {
-  handleNext: () => void;
-  buttonText?: string;
-};
-
-const Setup = ({ handleNext, buttonText }: Props) => {
+const Setup = () => {
   return (
     <Flex
       direction='column'
@@ -31,13 +25,6 @@ const Setup = ({ handleNext, buttonText }: Props) => {
           scale
         </Text>
       </Text>
-      <Button
-        color='primary'
-        onClick={handleNext}
-        css={{ px: '$4', position: 'absolute', bottom: '$6' }}
-      >
-        {buttonText ? buttonText : 'Next'}
-      </Button>
     </Flex>
   );
 };
