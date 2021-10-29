@@ -11,7 +11,6 @@ type Props = {
 const Volume = ({ value, setValue }: Props) => {
   return (
     <Flex
-      border
       direction='column'
       align='center'
       pad='4'

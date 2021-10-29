@@ -201,36 +201,41 @@ const BrewPage = () => {
       </Container>
       <Flex
         direction='column'
-        border
         css={{ flexGrow: '1', height: '$full' }}
       >
         {renderBrewStep()}
         <Flex
           direction='column'
           align='center'
-          justify='center'
-          border
+          justify='start'
           css={{ height: '50%' }}
         >
           <ProgressBar
             barValue={progressBarValue}
             timeValue={progressTimeValue}
           />
-          <Button
-            color='primary'
-            disabled={shouldDisableNext}
-            onClick={handleStepChange}
-            css={{ px: '$4', mt: '$5' }}
+          <Flex
+            align='center'
+            justify='center'
+            pad='4'
+            css={{ width: '$full', mt: '$5' }}
           >
-            Next
-          </Button>
-          <Button
-            color='primary'
-            onClick={moveBarValue}
-            css={{ px: '$4', mt: '$5' }}
-          >
-            Test
-          </Button>
+            <Button
+              color='primary'
+              disabled={shouldDisableNext}
+              onClick={handleStepChange}
+              css={{ px: '$4', mx: '$3' }}
+            >
+              Next
+            </Button>
+            <Button
+              color='primary'
+              onClick={moveBarValue}
+              css={{ px: '$4', mx: '$3' }}
+            >
+              Test
+            </Button>
+          </Flex>
         </Flex>
       </Flex>
     </Flex>
