@@ -30,7 +30,7 @@ const ProgressBar = ({ barValue, timeValue }: Props) => {
     <Progress value={100}>
       <ProgressIndicator
         style={{
-          transition: `width ${timeValue}ms ease-in`,
+          transition: `width ${timeValue}ms linear`,
           width: `${barValue}%`,
         }}
       />

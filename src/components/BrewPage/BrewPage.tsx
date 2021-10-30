@@ -20,9 +20,9 @@ const BrewPage = () => {
   const [sliderValue, setSliderValue] = useState(2);
 
   const [progressBarValue, setProgressBarValue] = useState(0);
-  const [progressTimeValue, setProgressTimeValue] = useState(5000);
+  const [progressTimeValue, setProgressTimeValue] = useState(1000);
 
-  const [delay, setDelay] = useState(5000);
+  const [delay, setDelay] = useState(1000);
   const [isTiming, setIsTiming] = useState(false);
 
   const coffee = Math.ceil(sliderValue * 15);
@@ -30,25 +30,15 @@ const BrewPage = () => {
 
   useInterval(
     () => {
-      if (progressBarValue > 0) {
-        setProgressTimeValue(1000);
+      if (progressBarValue === 100) {
         setProgressBarValue(0);
+        handleStepChange();
       } else {
-        setProgressTimeValue(5000);
-        setProgressTimeValue(1000);
+        setProgressBarValue(progressBarValue + 20);
       }
     },
     isTiming ? delay : null
   );
-
-  const TARGETS = {
-    BLOOM: coffee * 2,
-    FIRST: coffee * 6,
-    SECOND: coffee * 11,
-    FINAL: coffee * 15,
-  };
-
-  const shouldDisableNext = sliderValue !== 0 ? false : true;
 
   const handleStepChange = () => {
     if (currentStep === 7) {
@@ -57,6 +47,14 @@ const BrewPage = () => {
       setCurrentStep(currentStep + 1);
     }
   };
+
+  const resetProgress = () => {
+    setProgressBarValue(0);
+    setProgressTimeValue(200);
+    setIsTiming(false);
+  };
+
+  const shouldDisableNext = sliderValue !== 0 ? false : true;
 
   const renderBrewStep = () => {
     switch (currentStep) {
@@ -156,6 +154,13 @@ const BrewPage = () => {
     );
   };
 
+  const TARGETS = {
+    BLOOM: coffee * 2,
+    FIRST: coffee * 6,
+    SECOND: coffee * 11,
+    FINAL: coffee * 15,
+  };
+
   return (
     <Flex
       direction='row'
@@ -240,10 +245,10 @@ const BrewPage = () => {
             </Button>
             <Button
               color='primary'
-              // onClick={}
+              onClick={resetProgress}
               css={{ px: '$4', mx: '$3' }}
             >
-              Test
+              Reset
             </Button>
             <Button
               color='primary'
@@ -252,6 +257,13 @@ const BrewPage = () => {
             >
               {isTiming ? 'Stop' : 'Go!'}
             </Button>
+          </Flex>
+          <Flex border direction='column'>
+            <TextSub>
+              <div>Delay: {delay}ms </div>
+              <div>ProgressValue: {progressBarValue}%</div>
+              <div>ProgressTime: {progressTimeValue}ms</div>
+            </TextSub>
           </Flex>
         </Flex>
       </Flex>
