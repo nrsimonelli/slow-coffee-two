@@ -13,15 +13,33 @@ import SecondPour from './SecondPour';
 import FinalPour from './FinalPour';
 import ProgressBar from '../ProgressBar';
 import { Button } from '../Button';
+import { useInterval } from './useInterval';
 
 const BrewPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [sliderValue, setSliderValue] = useState(2);
-  const [progressBarValue, setProgressBarValue] = useState(10);
-  const [progressTimeValue, setProgressTimeValue] = useState(1000);
+
+  const [progressBarValue, setProgressBarValue] = useState(0);
+  const [progressTimeValue, setProgressTimeValue] = useState(5000);
+
+  const [delay, setDelay] = useState(5000);
+  const [isTiming, setIsTiming] = useState(false);
 
   const coffee = Math.ceil(sliderValue * 15);
   const water = Math.ceil((sliderValue * 225) / 50) * 50 + 100;
+
+  useInterval(
+    () => {
+      if (progressBarValue > 0) {
+        setProgressTimeValue(1000);
+        setProgressBarValue(0);
+      } else {
+        setProgressTimeValue(5000);
+        setProgressTimeValue(1000);
+      }
+    },
+    isTiming ? delay : null
+  );
 
   const TARGETS = {
     BLOOM: coffee * 2,
@@ -31,14 +49,6 @@ const BrewPage = () => {
   };
 
   const shouldDisableNext = sliderValue !== 0 ? false : true;
-
-  const moveBarValue = () => {
-    if (progressBarValue < 100) {
-      setProgressBarValue(progressBarValue + 10);
-    } else {
-      setProgressBarValue(0);
-    }
-  };
 
   const handleStepChange = () => {
     if (currentStep === 7) {
@@ -230,10 +240,17 @@ const BrewPage = () => {
             </Button>
             <Button
               color='primary'
-              onClick={moveBarValue}
+              // onClick={}
               css={{ px: '$4', mx: '$3' }}
             >
               Test
+            </Button>
+            <Button
+              color='primary'
+              onClick={() => setIsTiming(!isTiming)}
+              css={{ px: '$4', mx: '$3' }}
+            >
+              {isTiming ? 'Stop' : 'Go!'}
             </Button>
           </Flex>
         </Flex>
