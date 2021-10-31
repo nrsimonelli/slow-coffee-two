@@ -31,7 +31,10 @@ const BrewPage = () => {
 
   useInterval(
     () => {
-      if (progressBarValue === 100) {
+      if (currentStep <= 2) {
+        setProgressBarValue(0);
+        setIsTiming(false);
+      } else if (progressBarValue === 100) {
         setProgressBarValue(0);
         handleStepChange();
       } else {
@@ -42,9 +45,9 @@ const BrewPage = () => {
   );
 
   const handleStepChange = () => {
-    if (currentStep === 7) {
+    if (currentStep === 6) {
       setIsTiming(false);
-      setCurrentStep(8);
+      setCurrentStep(7);
       return;
     }
     setCurrentStep(currentStep + 1);
@@ -52,10 +55,10 @@ const BrewPage = () => {
 
   const resetProgress = () => {
     setProgressBarValue(0);
-    setIsTiming(false);
   };
 
   const shouldDisableNext = sliderValue !== 0 ? false : true;
+  const shouldDisableReset = progressBarValue !== 0 ? false : true;
 
   const renderBrewStep = () => {
     switch (currentStep) {
@@ -139,6 +142,8 @@ const BrewPage = () => {
       return (
         <Text
           onClick={() => {
+            setProgressBarValue(0);
+            setIsTiming(false);
             setCurrentStep(position);
           }}
           css={baseStyle}
@@ -150,6 +155,8 @@ const BrewPage = () => {
     return (
       <Text
         onClick={() => {
+          setProgressBarValue(0);
+          setIsTiming(false);
           setCurrentStep(position);
         }}
         css={baseStyle}
@@ -240,28 +247,33 @@ const BrewPage = () => {
             pad='4'
             css={{ width: '$full', mt: '$5' }}
           >
+            {currentStep <= 2 && (
+              <Button
+                color='primary'
+                disabled={shouldDisableNext}
+                onClick={handleStepChange}
+                css={{ px: '$4', mx: '$3' }}
+              >
+                Next
+              </Button>
+            )}
             <Button
               color='primary'
-              disabled={shouldDisableNext}
-              onClick={handleStepChange}
-              css={{ px: '$4', mx: '$3' }}
-            >
-              Next
-            </Button>
-            <Button
-              color='primary'
+              disabled={shouldDisableReset}
               onClick={resetProgress}
               css={{ px: '$4', mx: '$3' }}
             >
               Reset
             </Button>
-            <Button
-              color='primary'
-              onClick={() => setIsTiming(!isTiming)}
-              css={{ px: '$4', mx: '$3' }}
-            >
-              {isTiming ? 'Pause' : 'Go!'}
-            </Button>
+            {currentStep >= 3 && currentStep <= 7 && (
+              <Button
+                color='primary'
+                onClick={() => setIsTiming(!isTiming)}
+                css={{ px: '$4', mx: '$3' }}
+              >
+                {isTiming ? 'Pause' : 'Go!'}
+              </Button>
+            )}
           </Flex>
           <Flex direction='column'>
             <TextSub>
