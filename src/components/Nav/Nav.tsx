@@ -3,8 +3,8 @@ import { Flex } from '../Flex';
 import { Div } from '../Div';
 import { GiCoffeePot } from 'react-icons/gi';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
-import { NavLink } from 'react-router-dom';
-import { NAV_ROUTES } from '../../constants';
+import { Link, NavLink } from 'react-router-dom';
+import { NAV_ROUTES, ROUTES } from '../../constants';
 import { theme } from '../../stitches.config';
 
 const Nav = () => {
@@ -22,9 +22,11 @@ const Nav = () => {
         px: '$4',
       }}
     >
-      <Div css={{ '@bp1': { display: 'none' } }}>Menu</Div>
+      <Div css={{ '@bp2': { display: 'none' } }}>Menu</Div>
       <Div css={{ fontSize: '$5' }}>
-        <GiCoffeePot />
+        <Link to={ROUTES.HOME.PATH}>
+          <GiCoffeePot />
+        </Link>
       </Div>
       <Flex
         justify='end'

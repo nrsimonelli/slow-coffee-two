@@ -19,7 +19,7 @@ const FinalPour = ({ target }: Props) => {
         For the best bloom try to wet all of the grounds without
         pouring water down the sides of the filter.
       </Text>
-      <TextSub>Target: {target}g</TextSub>
+      <TextSub>Final target: {target}g</TextSub>
     </Flex>
   );
 };

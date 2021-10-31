@@ -21,9 +21,9 @@ const BrewPage = () => {
   const [sliderValue, setSliderValue] = useState(2);
 
   const [progressBarValue, setProgressBarValue] = useState(0);
-  const [progressTimeValue, setProgressTimeValue] = useState(400);
+  const [progressTimeValue] = useState(400);
 
-  const [delay, setDelay] = useState(400);
+  const [delay] = useState(400);
   const [isTiming, setIsTiming] = useState(false);
 
   const coffee = Math.ceil(sliderValue * 15);
@@ -237,10 +237,12 @@ const BrewPage = () => {
           justify='start'
           css={{ height: '50%' }}
         >
-          <ProgressBar
-            barValue={progressBarValue}
-            timeValue={progressTimeValue}
-          />
+          {currentStep < 7 && (
+            <ProgressBar
+              barValue={progressBarValue}
+              timeValue={progressTimeValue}
+            />
+          )}
           <Flex
             align='center'
             justify='center'
@@ -257,31 +259,27 @@ const BrewPage = () => {
                 Next
               </Button>
             )}
-            <Button
-              color='primary'
-              disabled={shouldDisableReset}
-              onClick={resetProgress}
-              css={{ px: '$4', mx: '$3' }}
-            >
-              Reset
-            </Button>
-            {currentStep >= 3 && currentStep <= 7 && (
-              <Button
-                color='primary'
-                onClick={() => setIsTiming(!isTiming)}
-                css={{ px: '$4', mx: '$3' }}
-              >
-                {isTiming ? 'Pause' : 'Go!'}
-              </Button>
+            {currentStep >= 3 && currentStep <= 6 && (
+              <>
+                <Button
+                  color='primary'
+                  disabled={shouldDisableReset}
+                  onClick={resetProgress}
+                  css={{ px: '$4', mx: '$3' }}
+                >
+                  Reset
+                </Button>
+                <Button
+                  color='primary'
+                  onClick={() => setIsTiming(!isTiming)}
+                  css={{ px: '$4', mx: '$3' }}
+                >
+                  {isTiming ? 'Pause' : 'Go'}
+                </Button>
+              </>
             )}
           </Flex>
-          <Flex direction='column'>
-            <TextSub>
-              <div>Delay: {delay}ms </div>
-              <div>ProgressValue: {progressBarValue}%</div>
-              <div>ProgressTime: {progressTimeValue}ms</div>
-            </TextSub>
-          </Flex>
+          <Flex direction='column'></Flex>
         </Flex>
       </Flex>
     </Flex>
