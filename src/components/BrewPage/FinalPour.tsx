@@ -6,7 +6,7 @@ type Props = {
   target: number;
 };
 
-const Bloom = ({ target }: Props) => {
+const FinalPour = ({ target }: Props) => {
   return (
     <Flex
       direction='column'
@@ -24,4 +24,4 @@ const Bloom = ({ target }: Props) => {
   );
 };
 
-export default Bloom;
+export default FinalPour;

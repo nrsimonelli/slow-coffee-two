@@ -14,15 +14,16 @@ import FinalPour from './FinalPour';
 import ProgressBar from '../ProgressBar';
 import { Button } from '../Button';
 import { useInterval } from './useInterval';
+import EndScreen from './EndScreen';
 
 const BrewPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [sliderValue, setSliderValue] = useState(2);
 
   const [progressBarValue, setProgressBarValue] = useState(0);
-  const [progressTimeValue, setProgressTimeValue] = useState(1000);
+  const [progressTimeValue, setProgressTimeValue] = useState(400);
 
-  const [delay, setDelay] = useState(1000);
+  const [delay, setDelay] = useState(400);
   const [isTiming, setIsTiming] = useState(false);
 
   const coffee = Math.ceil(sliderValue * 15);
@@ -34,7 +35,7 @@ const BrewPage = () => {
         setProgressBarValue(0);
         handleStepChange();
       } else {
-        setProgressBarValue(progressBarValue + 20);
+        setProgressBarValue(progressBarValue + 1);
       }
     },
     isTiming ? delay : null
@@ -42,15 +43,15 @@ const BrewPage = () => {
 
   const handleStepChange = () => {
     if (currentStep === 7) {
-      setCurrentStep(0);
-    } else {
-      setCurrentStep(currentStep + 1);
+      setIsTiming(false);
+      setCurrentStep(8);
+      return;
     }
+    setCurrentStep(currentStep + 1);
   };
 
   const resetProgress = () => {
     setProgressBarValue(0);
-    setProgressTimeValue(200);
     setIsTiming(false);
   };
 
@@ -72,8 +73,12 @@ const BrewPage = () => {
         return <FirstPour target={TARGETS.FIRST} />;
       case 5:
         return <SecondPour target={TARGETS.SECOND} />;
-      default:
+      case 6:
         return <FinalPour target={TARGETS.FINAL} />;
+      case 7:
+        return <EndScreen />;
+      default:
+        return <EndScreen />;
     }
   };
 
@@ -255,10 +260,10 @@ const BrewPage = () => {
               onClick={() => setIsTiming(!isTiming)}
               css={{ px: '$4', mx: '$3' }}
             >
-              {isTiming ? 'Stop' : 'Go!'}
+              {isTiming ? 'Pause' : 'Go!'}
             </Button>
           </Flex>
-          <Flex border direction='column'>
+          <Flex direction='column'>
             <TextSub>
               <div>Delay: {delay}ms </div>
               <div>ProgressValue: {progressBarValue}%</div>
