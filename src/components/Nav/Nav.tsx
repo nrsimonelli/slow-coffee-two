@@ -6,6 +6,7 @@ import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 import { Link, NavLink } from 'react-router-dom';
 import { NAV_ROUTES, ROUTES } from '../../constants';
 import { theme } from '../../stitches.config';
+import MenuDropdown from './MenuDropdown';
 
 const Nav = () => {
   const navActiveStyle = {
@@ -22,7 +23,9 @@ const Nav = () => {
         px: '$4',
       }}
     >
-      <Div css={{ '@bp2': { display: 'none' } }}>Menu</Div>
+      <Div css={{ '@bp2': { display: 'none' } }}>
+        <MenuDropdown />
+      </Div>
       <Div css={{ fontSize: '$5' }}>
         <Link to={ROUTES.HOME.PATH}>
           <GiCoffeePot />

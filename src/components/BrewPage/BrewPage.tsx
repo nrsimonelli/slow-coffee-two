@@ -279,7 +279,6 @@ const BrewPage = () => {
               </>
             )}
           </Flex>
-          <Flex direction='column'></Flex>
         </Flex>
       </Flex>
     </Flex>
