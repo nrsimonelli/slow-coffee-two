@@ -1,3 +1,3 @@
 # Slow Coffee 2.0
 
-## Reworking an old web application using Stitches
+## A Rework of my first solo project using Typescript, Stitches, and Radix Primitives.
